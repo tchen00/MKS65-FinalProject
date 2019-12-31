@@ -18,7 +18,7 @@ Once the make file is run, the user will be guided to the main menu where they w
 **Description of Technical Design:**
 
 - Shared memory and semaphores to save user login information + leaderboard (\*)
-- Leadership board will be implemented if there is sufficient time
+  - Leadership board will be implemented if there is sufficient time
 - SDLfor low-level access to keyboard, graphics, and mouse
 - Allocating memory to store the current status of the gameboard
 - Signals for keywords to change settings &amp; exit game
