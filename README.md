@@ -9,7 +9,7 @@
 
 #### Description of Project
 
-CMineSweeper will be our team&#39;s attempt at recreating the amazing single-player computer game. MineSweeper. The objective of the game is to clear a board (can be both square/rectangular) containing hidden mines with activating any of them. The neighboring mines will give the user a number clue as to how many mines surround it.
+CMineSweeper-Multiplayer will be our team&#39;s attempt at recreating the amazing single-player computer game. MineSweeper. The objective of the game is to clear a board (can be both square/rectangular) containing hidden mines with activating any of them. The neighboring mines will give the user a number clue as to how many mines surround it.
 
 **Description of User Interface:**
 
