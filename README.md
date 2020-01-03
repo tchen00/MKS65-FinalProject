@@ -9,7 +9,7 @@
 
 #### Description of Project
 
-CMineSweeper-Multiplayer will be our team&#39;s attempt at recreating the amazing single-player computer game. MineSweeper. The objective of the game is to clear a board (can be both square/rectangular) containing hidden mines with activating any of them. The neighboring mines will give the user a number clue as to how many mines surround it.
+CMineSweeper-Multiplayer will be our team&#39;s attempt at recreating the amazing two-player computer game. MineSweeper. The objective of the game is to clear a board (can be both square/rectangular) containing hidden mines with activating any of them. The neighboring mines will give players a number clue as to how many mines surround it. The player that clears more mines at the termination of game wins.
 
 **Description of User Interface:**
 
@@ -17,11 +17,11 @@ Once the make file is run, the user will be guided to the main menu where they w
 
 **Description of Technical Design:**
 
-- Shared memory and semaphores to save user login information + leaderboard (\*)
-  - Leadership board will be implemented if there is sufficient time
+- Reading in and writing into files to store login information and player history. New players will be prompted to enter new username and old players can view their history.
 - SDLfor low-level access to keyboard, graphics, and mouse
 - Allocating memory to store the current status of the gameboard
 - Signals for keywords to change settings &amp; exit game
+- Use of networking between two players on different computers
 
 **Data Structures &amp; Algorithms:**
 
@@ -40,7 +40,8 @@ Algorithms
 **Timeline of Expected Completion Dates &amp; Roles**
 
 - __JAN 6TH:__ Write board.c which should have functions that will build boards (Tammy), place mines (Alvin), and print the answer to the board (Bernard)
-- __JAN 11TH:__ Write play.c which should be able to run a functioning Minesweeper game with all the given rules and place mine-holders
+  - Figure out networking between two computers and trying to implement a simple 2 way view of the board.
+- __JAN 11TH:__ Write play.c which should be able to run a functioning Minesweeper game with all the given rules and place mine-holders. Implement networking.
   - All of us will work together on this!
   - This is when the MVP (Minimum Viable Product)should be done
 - __JAN 13TH:__ Check the game for any bugs that can be fixed, make the game more efficient (maybe recursion)
