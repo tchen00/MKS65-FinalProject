@@ -1,0 +1,31 @@
+DEVLOG (MKS65-FINAL PROJECT)
+---------------------------------------------------------------
+  KEYS:
+  tammyC   : tammy chen
+  bernardW : bernard wang
+  alvinY   : alvin yao
+  all      : tammy, bernard, alvin
+
+  FORMAT:
+  == DATE ==
+  NAME     : What person did
+  NAME     : What person did
+
+  * top will be the beginning, bottom will be most recent *
+---------------------------------------------------------------
+== 2019-12-31 ==
+  all      : finished project proposal
+  tammyC   : uploaded proposal to repo, linked submodule, added in documentation specs
+
+== 2020-01-02 ==
+  dw       : opened issue
+  all      : talked about new specifications to effectively use systems concepts
+  alvinY   : uploaded updated proposal to repo by adding multiplayer
+
+== 2020-01-03 ==
+  dw       : resolved issue, approved proposal
+
+== 2020-01-04 ==
+  bernardW : gained repo collaborator access and tested
+  alvinY   : created board.c, wrote place mines, and makeboard
+  tammyC   : create basic makefile & format DEVLOG
