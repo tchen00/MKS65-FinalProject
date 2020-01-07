@@ -11,9 +11,27 @@
 #include <fcntl.h>
 #include <ctype.h>
 
+void findPlayer(char * name){
+
+}
+
+void makePlayer(char * name){
+
+}
+
 int main(int argc, char * argv[]){
+  char * username;
   printf("Have you played before (y/n)? ");
-  
+  char * ans;
+  fgets(ans, 4, stdin);
+  if(!strcmp(ans,"y")){
+    printf("What is your username? ");
+    fgets(username, 256, stdin);
+    findPlayer(username);
+  }else{
+    printf("What would you like your username to be? ");
+    makePlayer(username);
+  }
   printf("Type in a difficulty (easy, medium, expert): ");
   char * diff;
   char ** currentgame;
