@@ -16,10 +16,10 @@ void placeMines(char ** board, int mines){
   int columns = sizeof(board[0]) / sizeof(board[0][0]);
   int randx;
   int randy;
-  while(mines){
+  while (mines){
     randx = (rand() % (columns + 1)) + columns;
     randy = (rand() % (rows + 1)) + rows;
-    if(board[randx][randy] != "X"){
+    if (board[randx][randy] != "X"){
       board[randx][randy] = "X";
       mines--;
     }
@@ -28,15 +28,20 @@ void placeMines(char ** board, int mines){
 
 char ** makeBoard(int difficulty){
   char ** newBoard;
-  if(difficulty == 1){
+  if (difficulty == 1){
     return newBoard[16][20];
   }
-  else if(difficulty == 2){
+  else if (difficulty == 2){
     return newBoard[32][40];
   }
   else{
     return newBoard[40][50];
   }
+}
+
+void printBoard(char ** board){
+  int i = 0;
+  for (;i++; i <= )
 }
 
 int main(){
