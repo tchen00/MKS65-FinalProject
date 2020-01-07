@@ -11,6 +11,10 @@
 #include <fcntl.h>
 #include <ctype.h>
 
+struct mine{
+  int marked; //corresponds to the player number who found it
+}
+
 void placeMines(char ** board, int mines){
   int rows = sizeof(board) / sizeof(board[0]);
   int columns = sizeof(board[0]) / sizeof(board[0][0]);
@@ -27,18 +31,45 @@ void placeMines(char ** board, int mines){
 }
 
 char ** makeBoard(int difficulty){
-  char ** newBoard;
-  if(difficulty == 1){
-    return newBoard[16][20];
+  int x,y, mines;
+  if(difficulty == 1 ){
+    char ** newBoard[16][20];
+    placeMines(newBoard,15);
   }
   else if(difficulty == 2){
-    return newBoard[32][40];
+    char ** newBoard[32][40];
+    placeMines(newBoard,31);
+  }
+  else if(difficulty == 3){
+    char ** newBoard[40][50];
+    placeMines(newBoard,55);
   }
   else{
-    return newBoard[40][50];
+    printf("Enter x dimensions: ");
+    fgets(x, 256, stdin);
+    printf("Enter y dimensions: ");
+    fgets(y, 256, stdin);
+    printf("Enter number of mines: ");
+    fgets(mines, 256, stdin);
+    char ** newBoard[x][y];
+    placeMines(newBoard,mines);
   }
+  return newBoard;
 }
 
-int main(){
+int main(int argc, char *argv[]){
+  char * diff;
+  char ** currentgame;
+  fgets(diff,4,stdin);
+  if(!strcmp(diff, "easy")){
+    currentgame = makeBoard(1);
+  }
+  else if(!strcmp(diff, "medium")){
+    currentgame = makeBoard(2);
+  }
+  else if(!strcmp(diff, "expert")){
+    currentgame = makeBoard(3);
+  }
+
   return 0;
 }
