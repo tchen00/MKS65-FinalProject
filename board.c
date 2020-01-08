@@ -13,7 +13,7 @@
 
 struct mine{
   int marked; //corresponds to the player number who found it
-}
+};
 
 void placeMines(char ** board, int mines){
   int rows = sizeof(board) / sizeof(board[0]);
@@ -31,6 +31,7 @@ void placeMines(char ** board, int mines){
 }
 
 char ** makeBoard(int difficulty){
+  char ** newBoard;
   int x,y, mines;
   if(difficulty == 1 ){
     char ** newBoard[16][20];
@@ -62,7 +63,6 @@ void printBoard(char ** board){
   for (;i++; i <= )
 }
 */
-int main(){
 int main(int argc, char *argv[]){
   char * diff;
   char ** currentgame;
