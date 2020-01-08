@@ -31,14 +31,6 @@ void placeMines(char ** board, int mines){
 }
 
 char ** makeBoard(int difficulty){
-<<<<<<< HEAD
-  char ** newBoard;
-  if (difficulty == 1){
-    return newBoard[16][20];
-  }
-  else if (difficulty == 2){
-    return newBoard[32][40];
-=======
   int x,y, mines;
   if(difficulty == 1 ){
     char ** newBoard[16][20];
@@ -51,7 +43,6 @@ char ** makeBoard(int difficulty){
   else if(difficulty == 3){
     char ** newBoard[40][50];
     placeMines(newBoard,55);
->>>>>>> de1feb57450e34be9f255ecc143c8f61edc8d465
   }
   else{
     printf("Enter x dimensions: ");
