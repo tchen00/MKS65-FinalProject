@@ -23,38 +23,37 @@ void placeMines(char ** board, int mines){
   while (mines){
     randx = (rand() % (columns + 1)) + columns;
     randy = (rand() % (rows + 1)) + rows;
-    if (board[randx][randy] != "X"){
-      board[randx][randy] = "X";
+    if (board[randx][randy] != 'X'){
+      board[randx][randy] = 'X';
       mines--;
     }
   }
 }
 
 char ** makeBoard(int difficulty){
-  char ** newBoard;
-  int x,y, mines;
+  int x, y, i, j, mines;
   if(difficulty == 1 ){
-    char ** newBoard[16][20];
-    placeMines(newBoard,15);
+    x = 16, y = 20, mines = 15;
   }
   else if(difficulty == 2){
-    char ** newBoard[32][40];
-    placeMines(newBoard,31);
+    x = 32, y = 40, mines = 31;
   }
   else if(difficulty == 3){
-    char ** newBoard[40][50];
-    placeMines(newBoard,55);
+    x = 40, y = 50, mines = 55;
   }
   else{
     printf("Enter x dimensions: ");
-    fgets(x, 256, stdin);
+    scanf("%d", &x);
     printf("Enter y dimensions: ");
-    fgets(y, 256, stdin);
+    scanf("%d", &y);
     printf("Enter number of mines: ");
-    fgets(mines, 256, stdin);
-    char ** newBoard[x][y];
-    placeMines(newBoard,mines);
+    scanf("%d", &mines);
   }
+
+  char **newBoard = (char **)malloc(x * sizeof(char *));
+  for (i=0; i<x; i++)
+       newBoard[i] = (char *)malloc(y * sizeof(char));
+  placeMines(newBoard, mines);
   return newBoard;
 }
 /*
@@ -66,7 +65,9 @@ void printBoard(char ** board){
 int main(int argc, char *argv[]){
   char * diff;
   char ** currentgame;
-  fgets(diff,4,stdin);
+
+  printf("YO! Enter a difficulty: easy, medium, hard.");
+  fgets(diff,sizeof(diff),stdin);
   if(!strcmp(diff, "easy")){
     currentgame = makeBoard(1);
   }
