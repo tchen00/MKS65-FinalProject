@@ -9,11 +9,13 @@
 
 #### Description of Project
 
-CMineSweeper-Multiplayer will be our team&#39;s attempt at recreating the amazing two-player computer game. MineSweeper. The objective of the game is to clear a board (can be both square/rectangular) containing hidden mines with activating any of them. The neighboring mines will give players a number clue as to how many mines surround it. The player that clears more mines at the termination of game wins.
+CMineSweeper-Multiplayer will be our team&#39;s attempt at recreating Minesweeper into a competitive two-player game. The objective of the game is to clear a board (can be both square/rectangular) containing hidden mines without activating any of them, while trying to accurately identify more mines than your opponent. After uncovering a space on the board, if it is not a mine, it will display the total number of mines contained in the neighboring spaces. In the end of the game, points will be awarded based on the number of mines correctly identified for each player. Points will be deducted based on the number of mines hit during the game and the number of mines incorrectly identified.
 
 **Description of User Interface:**
 
 Once the make file is run, the user will be guided to the main menu where they will have a choice of beginner, intermediate, or advanced level. The main difference amongst all these levels will be the grid size. The user will also have the choice of building their own custom grid. After the user has chosen their preferences, they can create the new game. Once they are in the game, they will wait for the second player to connect. The first click of the user onto the grid will determine all the locations of the mines. The user can then enjoy a multiplayer version of Minesweeper by clicking on other grid areas using the given clues. The user can also mark down the possible mines. There will be three number displays, time and number of mines found per player. If the user activates a mine, the user will lose a point &amp; the screen will display options of retrying or exiting the game after all mines have been found. Whichever user has a higher mine count wins. The screen will display options of playing again or exiting the game.
+(points system and winning/losing will be updated.)
+
 
 **Description of Technical Design:**
 
