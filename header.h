@@ -13,3 +13,6 @@ struct mine{
 void placeMines(struct Minesweeper * gameboard);
 void printBoard(struct Minesweeper *gameboard);
 struct Minesweeper *makeBoard(int difficulty);
+struct player makePlayer(char * name);
+void findPlayer(char * name);
+void printPlayer(struct player user);
