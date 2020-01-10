@@ -134,5 +134,9 @@ int main(int argc, char *argv[]){
   }
 
 
+  printBoard(currentgame);
+  placeMines(currentgame);
+  printBoard(currentgame);
+
   return 0;
 }
