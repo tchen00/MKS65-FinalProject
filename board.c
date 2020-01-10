@@ -20,8 +20,8 @@ void placeMines(char ** board, int rows, int columns, int mines){
   int randc;
   int minesremaining = mines;
   while (minesremaining){
-    randr = rand() % columns;
-    randc = rand() % rows;
+    randr = rand() % rows;
+    randc = rand() % columns;
     if (board[randr][randc] != 'X'){
       board[randr][randc] = 'X';
       minesremaining--;
