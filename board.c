@@ -133,5 +133,15 @@ int main(int argc, char *argv[]){
     currentgame = makeBoard(4);
   }
 
+  printf("%d", gameboard->rows)
+  printf("%d", gameboard->columns)
+  printf("%d", gameboard->mines)
+  printf("%d", gameboard->size)
+/*
+  printBoard(currentgame);
+  placeMines(currentgame);
+  printBoard(currentgame);
+  */
+
   return 0;
 }
