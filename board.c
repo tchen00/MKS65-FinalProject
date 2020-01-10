@@ -103,12 +103,13 @@ struct Minesweeper *makeBoard(int difficulty){
   for (i = 0; i < r; i++)
       for (j = 0; j < c; j++)
          gameboard->board[i][j] = '0';
-  return gameboard;
+
 
   printBoard(gameboard);
   placeMines(gameboard);
   printBoard(gameboard);
 
+  return gameboard;
 }
 
 int main(int argc, char *argv[]){
