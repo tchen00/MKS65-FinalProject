@@ -104,6 +104,9 @@ struct Minesweeper *makeBoard(int difficulty){
       for (j = 0; j < c; j++)
          gameboard->board[i][j] = '0';
 
+  for (i=0; i<r; i++)
+    free(gameboard->board[i]);
+  free(gameboard->board);
   return gameboard;
 }
 
