@@ -94,7 +94,7 @@ struct Minesweeper *makeBoard(int difficulty){
 
   int rowsize = r * sizeof(char*);
   int columnsize = c * sizeof(char);
-  struct->board = (char**)malloc(rowsize);
+  gameboard->board = (char**)malloc(rowsize);
   for (i=0; i<r; i++)
     gameboard->board[i] = (char*)malloc(columnsize);
   printf("r * sizeof(char*): %d\n", rowsize);
