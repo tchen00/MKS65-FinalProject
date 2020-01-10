@@ -86,7 +86,7 @@ struct Minesweeper *makeBoard(int difficulty){
   printf("YOOOOOOOO");
 
 
-  struct Minesweeper *gameboard = (struct Minesweeper)malloc(sizeof(struct Minesweeper));
+  struct Minesweeper *gameboard = (struct Minesweeper *)malloc(sizeof(struct Minesweeper));
   gameboard->rows = r;
   gameboard->columns = c;
   gameboard->mines = mines;
