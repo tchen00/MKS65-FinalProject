@@ -85,15 +85,6 @@ char ** makeBoard(int difficulty){
          newBoard[i][j] = '0';
   newBoard[2][3] = 'X';
 
-  int randx = (rand() % (x + 1)) + x;
-  int randy = (rand() % (y + 1)) + y;
-  if (newBoard[randx][randy] != 'X'){
-    newBoard[randx][randy] = 'X';
-  }
-  if (newBoard[2][4] != 'X'){
-    newBoard[2][4] = 'X';
-  }
-
   printBoard(newBoard, x, y);
   //placeMines(newBoard, x, y, mines);
   //printBoard(newBoard, x, y);
