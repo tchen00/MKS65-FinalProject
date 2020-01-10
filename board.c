@@ -16,7 +16,7 @@ struct mine{
 };
 
 void placeMines(char ** board, int rows, int columns, int mines){
-  printf("placing mines...");
+  printf("PLACING MINES...\n");
   int randr;
   int randc;
   while (mines){
@@ -30,8 +30,7 @@ void placeMines(char ** board, int rows, int columns, int mines){
 }
 
 void printBoard(char ** board, int rows, int columns){
-  printf("%d\n", rows);
-  printf("%d\n", columns);
+  printf("DISPLAYING BOARD...\n")
   int i, j;
   printf("\t   ");
   for (j = 0; j < columns; j ++){
@@ -88,7 +87,6 @@ char ** makeBoard(int difficulty){
   printBoard(newBoard, r, c);
   placeMines(newBoard, r, c, mines);
   printBoard(newBoard, r, c);
-  printf("yooooooooooooooo\n");
   return newBoard;
 }
 
