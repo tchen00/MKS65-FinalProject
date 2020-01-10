@@ -35,7 +35,7 @@ void placeMines(char ** board, int rows, int columns, int mines){
       mines--;
     }
   }
-  printf("MINES PLACED!\n")
+  printf("MINES PLACED!\n");
 }
 
 void printBoard(char ** board, int rows, int columns){
