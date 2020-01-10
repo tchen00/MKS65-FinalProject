@@ -74,10 +74,11 @@ char ** makeBoard(int difficulty){
   for (i = 0; i < x; i++)
       for (j = 0; j < y; j++)
          newBoard[i][j] = '0';
+  newBoard[2][3] = 'X';
   printBoard(newBoard, x, y);
-  printf("yooooooooooooooo");
   placeMines(newBoard, x, y, mines);
   printBoard(newBoard, x, y);
+  printf("yooooooooooooooo\n");
   return newBoard;
 }
 
@@ -85,18 +86,18 @@ int main(int argc, char *argv[]){
   char * diff;
   char ** currentgame;
 
-  printf("YO! Enter a difficulty: easy, medium, hard:\n");
+  printf("YO! Enter a difficulty: easy, medium, hard, or other:\n");
   fgets(diff,sizeof(diff),stdin);
   if(!strncmp(diff, "easy", 1)){
     currentgame = makeBoard(1);
   }
-  else if(!strncmp(diff, "medium",1)){
+  else if(!strncmp(diff, "medium", 1)){
     currentgame = makeBoard(2);
   }
-  else if(!strncmp(diff, "hard",1)){
+  else if(!strncmp(diff, "hard", 1)){
     currentgame = makeBoard(3);
   }
-  else{
+  else if (!strncmp(diff, "other", 1)){
     currentgame = makeBoard(4);
   }
 
