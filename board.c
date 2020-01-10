@@ -87,14 +87,14 @@ struct Minesweeper *makeBoard(int difficulty){
 
 
   struct Minesweeper *gameboard;
-/*
+
   gameboard->rows = r;
   gameboard->columns = c;
   gameboard->mines = mines;
   gameboard->size = r * c;
-*/
-  printf("YOOOOOOOO");
 
+  printf("YOOOOOOOO");
+/*
   int rowsize = r * sizeof(char*);
   int columnsize = c * sizeof(char);
   gameboard->board = (char**)malloc(rowsize);
@@ -110,6 +110,7 @@ struct Minesweeper *makeBoard(int difficulty){
   printBoard(gameboard);
   placeMines(gameboard);
   printBoard(gameboard);
+*/
   return gameboard;
 }
 
