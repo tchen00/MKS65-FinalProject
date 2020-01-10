@@ -63,7 +63,7 @@ void printBoard(struct Minesweeper *gameboard){
 }
 
 
-struct Minesweeper *makeBoard(struct Minesweeper gameboard, int difficulty){
+struct Minesweeper *makeBoard(struct Minesweeper *gameboard, int difficulty){
   printf("difficulty: %d\n", difficulty);
   int r, c, i, j, mines;
   if(difficulty == 1){
