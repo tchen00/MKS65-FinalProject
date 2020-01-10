@@ -49,33 +49,57 @@ char ** makeBoard(int difficulty){
     printf("Enter number of mines: ");
     scanf("%d", &mines);
   }
-
-  char **newBoard = (char **)malloc(x * sizeof(char *));
+  char **newBoard;
+  newBoard = malloc(x * sizeof(char*));
+  printf("%d\n", sizeof(newBoard));
   for (i=0; i<x; i++)
-       newBoard[i] = (char *)malloc(y * sizeof(char));
+       newBoard[i] = malloc(y * sizeof(char));
+  printf("%d\n", sizeof(newBoard));
+
+
+  for (i = 0; i < x; i++)
+      for (j = 0; j < y; j++)
+         newBoard[i][j] = '0';
+  printBoard(newBoard);
   placeMines(newBoard, mines);
+  printBoard(newBoard);
   return newBoard;
 }
-/*
+
 void printBoard(char ** board){
-  int i = 0;
-  for (;i++; i <= )
+  int rows = sizeof(board) / sizeof(board[0]);
+  int columns = sizeof(board[0]) / sizeof(board[0][0]);
+  printf("%d\n", rows);
+  printf("%d\n", columns);
+  int i, j;
+  for (i = 0; i < rows; i ++){
+    for (j = 0; j < columns; j ++){
+      printf("[%c]", board[i][j]);
+    }
+    printf("\n");
+  }
 }
-*/
+
 int main(int argc, char *argv[]){
   char * diff;
   char ** currentgame;
 
-  printf("YO! Enter a difficulty: easy, medium, hard.");
+  printf("YO! Enter a difficulty: easy, medium, hard:\n");
   fgets(diff,sizeof(diff),stdin);
-  if(!strcmp(diff, "easy")){
+  if(!strncmp(diff, "easy", 1)){
     currentgame = makeBoard(1);
   }
-  else if(!strcmp(diff, "medium")){
+  else if(!strncmp(diff, "medium",1)){
     currentgame = makeBoard(2);
   }
-  else if(!strcmp(diff, "expert")){
+  else if(!strncmp(diff, "hard",1)){
     currentgame = makeBoard(3);
   }
+  else{
+    currentgame = makeBoard(4);
+  }
+  printf("%ld\n", sizeof(char));
+  printf("%ld\n",sizeof(currentgame));
+
   return 0;
 }
