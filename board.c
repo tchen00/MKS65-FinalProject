@@ -85,10 +85,10 @@ char ** makeBoard(int difficulty){
          newBoard[i][j] = '0';
   newBoard[2][3] = 'X';
 
-  randx = (rand() % (x + 1)) + x;
-  randy = (rand() % (y + 1)) + y;
-  if (board[randx][randy] != 'X'){
-    board[randx][randy] = 'X';
+  int randx = (rand() % (x + 1)) + x;
+  int randy = (rand() % (y + 1)) + y;
+  if (newBoard[randx][randy] != 'X'){
+    newBoard[randx][randy] = 'X';
   }
   if (newBoard[2][4] != 'X'){
     newBoard[2][4] = 'X';
