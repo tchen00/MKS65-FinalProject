@@ -23,7 +23,7 @@ struct mine{
   int marked; //corresponds to the player number who found it
 };
 
-void placeMines(struct * Minesweeper gameboard){
+void placeMines(struct Minesweeper * gameboard){
   //might be sus here.
   char ** board = gameboard->board;
   int minesremaining = gameboard->mines;
@@ -41,7 +41,7 @@ void placeMines(struct * Minesweeper gameboard){
   printf("MINES PLACED!\n");
 }
 
-void printBoard(struct * Minesweeper gameboard){
+void printBoard(struct Minesweeper *gameboard){
   //again, this might be sus.
   char ** board = gameboard->board;
   printf("DISPLAYING BOARD...\n");
@@ -63,7 +63,7 @@ void printBoard(struct * Minesweeper gameboard){
 }
 
 
-struct * Minesweeper makeBoard(int difficulty){
+Minesweeper *makeBoard(int difficulty){
   printf("difficulty: %d\n", difficulty);
   int r, c, i, j, mines;
   if(difficulty == 1){
@@ -111,7 +111,7 @@ struct * Minesweeper makeBoard(int difficulty){
 
 int main(int argc, char *argv[]){
   char * diff;
-  struct Minesweeper * currentgame;
+  struct Minesweeper *currentgame;
 
   printf("YO! Enter a difficulty: easy, medium, hard, or other:\n");
   fgets(diff,sizeof(diff),stdin);
