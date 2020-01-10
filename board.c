@@ -62,6 +62,7 @@ char ** makeBoard(int difficulty){
       for (j = 0; j < y; j++)
          newBoard[i][j] = '0';
   printBoard(newBoard);
+  printf("yooooooooooooooo");
   placeMines(newBoard, x, y, mines);
   printBoard(newBoard);
   return newBoard;
