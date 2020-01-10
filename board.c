@@ -133,10 +133,10 @@ int main(int argc, char *argv[]){
     currentgame = makeBoard(4);
   }
 
-  printf("%d", gameboard->rows)
-  printf("%d", gameboard->columns)
-  printf("%d", gameboard->mines)
-  printf("%d", gameboard->size)
+  printf("%d", currentgame->rows);
+  printf("%d", currentgame->columns);
+  printf("%d", currentgame->mines);
+  printf("%d", currentgame->size);
 /*
   printBoard(currentgame);
   placeMines(currentgame);
