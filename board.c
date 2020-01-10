@@ -133,10 +133,5 @@ int main(int argc, char *argv[]){
     currentgame = makeBoard(4);
   }
 
-
-  printBoard(currentgame);
-  placeMines(currentgame);
-  printBoard(currentgame);
-
   return 0;
 }
