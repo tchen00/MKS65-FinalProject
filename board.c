@@ -84,10 +84,10 @@ char ** makeBoard(int difficulty){
   for (i = 0; i < r; i++)
       for (j = 0; j < c; j++)
          newBoard[i][j] = '0';
-  newBoard[2][3] = 'X';
 
   printBoard(newBoard, r, c);
   placeMines(newBoard, r, c, mines);
+  printf("yo");
   printBoard(newBoard, r, c);
   printf("yooooooooooooooo\n");
   return newBoard;
@@ -108,9 +108,9 @@ int main(int argc, char *argv[]){
   else if(!strncmp(diff, "hard", 1)){
     currentgame = makeBoard(3);
   }
-  else if (!strncmp(diff, "other", 1)){
+  //else if (!strncmp(diff, "other", 1)){
+  else{
     currentgame = makeBoard(4);
   }
-
   return 0;
 }
