@@ -16,14 +16,14 @@ struct mine{
 };
 
 void placeMines(char ** board, int rows, int columns, int mines){
-  int randx;
-  int randy;
+  int randr;
+  int randc;
   int minesremaining = mines;
   while (minesremaining){
-    randx = rand() % columns;
-    randy = rand() % rows;
-    if (board[randx][randy] != 'X'){
-      board[randx][randy] = 'X';
+    randr = rand() % columns;
+    randc = rand() % rows;
+    if (board[randr][randc] != 'X'){
+      board[randr][randc] = 'X';
       minesremaining--;
     }
   }
@@ -51,44 +51,44 @@ void printBoard(char ** board, int rows, int columns){
 
 
 char ** makeBoard(int difficulty){
-  printf("difficulty: %d", difficulty);
-  int x, y, i, j, mines;
+  printf("difficulty: %d\n", difficulty);
+  int r, c, i, j, mines;
   if(difficulty == 1){
-    x = 16, y = 20, mines = 15;
+    r = 16, c = 20, mines = 15;
   }
   else if(difficulty == 2){
-    x = 32, y = 40, mines = 31;
+    r = 32, c = 40, mines = 31;
   }
   else if(difficulty == 3){
-    x = 40, y = 50, mines = 55;
+    r = 40, c = 50, mines = 55;
   }
   else{
-    printf("Enter x dimensions: ");
-    scanf("%d", &x);
-    printf("Enter y dimensions: ");
-    scanf("%d", &y);
+    printf("Enter # of rows: ");
+    scanf("%d", &r);
+    printf("Enter # of columns: ");
+    scanf("%d", &c);
     printf("Enter number of mines: ");
     scanf("%d", &mines);
   }
   char **newBoard;
-  int rowsize = x * sizeof(char*);
-  int columnsize = y * sizeof(char);
+  int rowsize = r * sizeof(char*);
+  int columnsize = c * sizeof(char);
   newBoard = malloc(rowsize);
-  printf("x * sizeof(char*): %d\n", rowsize);
-  for (i=0; i<x; i++)
+  printf("r * sizeof(char*): %d\n", rowsize);
+  for (i=0; i<r; i++)
        newBoard[i] = malloc(columnsize);
-  printf("y * sizeof(char): %d\n", columnsize);
+  printf("c * sizeof(char): %d\n", columnsize);
   printf("size of entire board: %d\n", rowsize * columnsize);
 
 
-  for (i = 0; i < x; i++)
-      for (j = 0; j < y; j++)
+  for (i = 0; i < r; i++)
+      for (j = 0; j < c; j++)
          newBoard[i][j] = '0';
   newBoard[2][3] = 'X';
 
-  printBoard(newBoard, x, y);
-  placeMines(newBoard, x, y, mines);
-  printBoard(newBoard, x, y);
+  printBoard(newBoard, r, c);
+  placeMines(newBoard, r, c, mines);
+  printBoard(newBoard, r, c);
   printf("yooooooooooooooo\n");
   return newBoard;
 }
