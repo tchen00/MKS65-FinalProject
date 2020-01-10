@@ -15,9 +15,7 @@ struct mine{
   int marked; //corresponds to the player number who found it
 };
 
-void placeMines(char ** board, int mines){
-  int rows = sizeof(board) / sizeof(board[0]);
-  int columns = sizeof(board[0]) / sizeof(board[0][0]);
+void placeMines(char ** board, int rows, int columns, int mines){
   int randx;
   int randy;
   while (mines){
@@ -50,19 +48,21 @@ char ** makeBoard(int difficulty){
     scanf("%d", &mines);
   }
   char **newBoard;
-  newBoard = malloc(x * sizeof(char*));
-  printf("x * sizeof(char*): %d\n", x * sizeof(char*));
+  int rowsize = x * sizeof(char*);
+  int columnsize = y * sizeof(char);
+  newBoard = malloc(rowsize;
+  printf("x * sizeof(char*): %d\n", rowsize);
   for (i=0; i<x; i++)
-       newBoard[i] = malloc(y * sizeof(char));
-  printf("y * sizeof(char*): %d\n", y * sizeof(char));
-  printf("size of entire board: %d\n", sizeof(newBoard));
+       newBoard[i] = malloc(columnsize);
+  printf("y * sizeof(char): %d\n", y * sizeof(char));
+  printf("size of entire board: %d\n", rowsize * columnsize);
 
 
   for (i = 0; i < x; i++)
       for (j = 0; j < y; j++)
          newBoard[i][j] = '0';
   printBoard(newBoard);
-  placeMines(newBoard, mines);
+  placeMines(newBoard, x, y, mines);
   printBoard(newBoard);
   return newBoard;
 }
