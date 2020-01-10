@@ -51,10 +51,11 @@ char ** makeBoard(int difficulty){
   }
   char **newBoard;
   newBoard = malloc(x * sizeof(char*));
-  printf("%d\n", sizeof(newBoard));
+  printf("x * sizeof(char*): %d", x * sizeof(char*));
   for (i=0; i<x; i++)
        newBoard[i] = malloc(y * sizeof(char));
-  printf("%d\n", sizeof(newBoard));
+  printf("y * sizeof(char*): %d", y * sizeof(char));
+  printf("size of entire board: %d\n", sizeof(newBoard));
 
 
   for (i = 0; i < x; i++)
@@ -98,8 +99,6 @@ int main(int argc, char *argv[]){
   else{
     currentgame = makeBoard(4);
   }
-  printf("%ld\n", sizeof(char));
-  printf("%ld\n",sizeof(currentgame));
 
   return 0;
 }
