@@ -32,10 +32,10 @@ void printBoard(char ** board, int rows, int columns){
   printf("%d\n", rows);
   printf("%d\n", columns);
   int i, j;
-  printf("    ");
+  printf("\t   ");
   for (j = 0; j < columns; j ++){
-    printf("%d    ", j);
-    if (j >= 10)
+    printf("%d   ", j);
+    if (j < 10)
       printf(" ");
   }
   printf("\n");
