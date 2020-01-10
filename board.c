@@ -30,7 +30,7 @@ void placeMines(char ** board, int rows, int columns, int mines){
 }
 
 void printBoard(char ** board, int rows, int columns){
-  printf("DISPLAYING BOARD...\n")
+  printf("DISPLAYING BOARD...\n");
   int i, j;
   printf("\t   ");
   for (j = 0; j < columns; j ++){
