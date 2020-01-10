@@ -12,7 +12,7 @@
 #include <ctype.h>
 
 struct Minesweeper{
-  char ** board;
+  char **board;
   int rows;
   int columns;
   int size;
@@ -85,12 +85,13 @@ struct Minesweeper *makeBoard(int difficulty){
   }
   printf("YOOOOOOOO");
 
-  Minesweeper *gameboard;
+/*
+  struct Minesweeper *gameboard;
   gameboard->rows = r;
   gameboard->columns = c;
   gameboard->mines = mines;
   gameboard->size = r * c;
-
+*/
   printf("YOOOOOOOO");
 
   int rowsize = r * sizeof(char*);
