@@ -92,19 +92,17 @@ struct Minesweeper *makeBoard(int difficulty){
 
   printf("YOOOOOOOO");
 
-  char **newBoard;
   int rowsize = r * sizeof(char*);
   int columnsize = c * sizeof(char);
-  newBoard = malloc(rowsize);
+  struct->board = (char**)malloc(rowsize);
   for (i=0; i<r; i++)
-    newBoard[i] = malloc(columnsize);
+    gameboard->board[i] = (char*)malloc(columnsize);
   printf("r * sizeof(char*): %d\n", rowsize);
   printf("c * sizeof(char): %d\n", columnsize);
   printf("size of entire board: %d\n", rowsize * columnsize);
   for (i = 0; i < r; i++)
       for (j = 0; j < c; j++)
-         newBoard[i][j] = '0';
-  gameboard->board = newBoard;
+         gameboard->board[i][j] = '0';
 
   printBoard(gameboard);
   placeMines(gameboard);
