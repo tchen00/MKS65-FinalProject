@@ -104,11 +104,6 @@ struct Minesweeper *makeBoard(int difficulty){
       for (j = 0; j < c; j++)
          gameboard->board[i][j] = '0';
 
-
-  printBoard(gameboard);
-  placeMines(gameboard);
-  printBoard(gameboard);
-
   return gameboard;
 }
 
