@@ -31,7 +31,13 @@ void placeMines(char ** board, int rows, int columns, int mines){
 void printBoard(char ** board, int rows, int columns){
   printf("%d\n", rows);
   printf("%d\n", columns);
-
+  int i, j;
+  for (i = 0; i < rows; i ++){
+    for (j = 0; j < columns; j ++){
+      printf("[%c]", board[i][j]);
+    }
+    printf("\n");
+  }
 }
 
 
@@ -68,7 +74,7 @@ char ** makeBoard(int difficulty){
   for (i = 0; i < x; i++)
       for (j = 0; j < y; j++)
          newBoard[i][j] = '0';
-  printBoard(newBoard);
+  printBoard(newBoard, x, y);
   printf("yooooooooooooooo");
   //placeMines(newBoard, x, y, mines);
   //printBoard(newBoard);
