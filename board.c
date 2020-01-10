@@ -86,6 +86,7 @@ char ** makeBoard(int difficulty){
   newBoard[2][3] = 'X';
   if (newBoard[2][4] != 'X'){
     newBoard[2][4] = 'X';
+  }
 
   printBoard(newBoard, x, y);
   //placeMines(newBoard, x, y, mines);
