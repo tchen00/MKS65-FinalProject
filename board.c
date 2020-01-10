@@ -16,7 +16,7 @@ struct mine{
 };
 
 void placeMines(char ** board, int rows, int columns, int mines){
-  printf("placing mines...")
+  printf("placing mines...");
   int randr;
   int randc;
   while (mines){
