@@ -110,6 +110,7 @@ Minesweeper *makeBoard(int difficulty){
 }
 
 int main(int argc, char *argv[]){
+  srand(time(NULL));
   char * diff;
   struct Minesweeper *currentgame;
 
