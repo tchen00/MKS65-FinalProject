@@ -104,9 +104,12 @@ struct Minesweeper *makeBoard(int difficulty){
       for (j = 0; j < c; j++)
          gameboard->board[i][j] = '0';
 
+
+/*
   for (i=0; i<r; i++)
     free(gameboard->board[i]);
   free(gameboard->board);
+*/
   return gameboard;
 }
 
@@ -131,6 +134,7 @@ int main(int argc, char *argv[]){
     currentgame = makeBoard(4);
   }
 
+//these actually don't work in this main function lmao. but it works in the makeboard function. weird.
   printf("%d", currentgame->rows);
   printf("%d", currentgame->columns);
   printf("%d", currentgame->mines);
