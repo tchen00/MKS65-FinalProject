@@ -54,7 +54,7 @@ char ** makeBoard(int difficulty){
   printf("x * sizeof(char*): %d\n", rowsize);
   for (i=0; i<x; i++)
        newBoard[i] = malloc(columnsize);
-  printf("y * sizeof(char): %d\n", y * sizeof(char));
+  printf("y * sizeof(char): %d\n", columnsize);
   printf("size of entire board: %d\n", rowsize * columnsize);
 
 
@@ -67,9 +67,7 @@ char ** makeBoard(int difficulty){
   return newBoard;
 }
 
-void printBoard(char ** board){
-  int rows = sizeof(board) / sizeof(board[0]);
-  int columns = sizeof(board[0]) / sizeof(board[0][0]);
+void printBoard(char ** board, int rows, int columns){
   printf("%d\n", rows);
   printf("%d\n", columns);
   int i, j;
