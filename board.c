@@ -84,7 +84,7 @@ struct Minesweeper *makeBoard(int difficulty){
     scanf("%d", &mines);
   }
 
-  struct Minesweeper *gameboard;
+  struct Minesweeper *gameboard = (struct Minesweeper *)malloc(sizeof(struct Minesweeper));
   gameboard->rows = r;
   gameboard->columns = c;
   gameboard->mines = mines;
@@ -114,17 +114,17 @@ int main(int argc, char *argv[]){
   printf("YO! Enter a difficulty: easy, medium, hard, or other:\n");
   fgets(diff,sizeof(diff),stdin);
   if(!strncmp(diff, "easy", 1)){
-    currentgame = makeBoard(1);
+    *currentgame = makeBoard(1);
   }
   else if(!strncmp(diff, "medium", 1)){
-    currentgame = makeBoard(2);
+    *currentgame = makeBoard(2);
   }
   else if(!strncmp(diff, "hard", 1)){
-    currentgame = makeBoard(3);
+    *currentgame = makeBoard(3);
   }
   //else if (!strncmp(diff, "other", 1)){
   else{
-    currentgame = makeBoard(4);
+    *currentgame = makeBoard(4);
   }
 
   printBoard(currentgame);
