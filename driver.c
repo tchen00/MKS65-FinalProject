@@ -11,7 +11,8 @@
 #include <fcntl.h>
 #include <ctype.h>
 
-#include "header.h"
+#include "play.h"
+#include "board.h"
 
 int main(int argc, char * argv[]){
   srand(time(NULL));

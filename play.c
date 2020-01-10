@@ -11,13 +11,7 @@
 #include <fcntl.h>
 #include <ctype.h>
 
-
-struct player{
-  char name[100];
-  int pastgames;
-  int victories;
-  int losses;
-};
+#include "play.h"
 
 struct player makePlayer(char * name){
   struct player newPlayer;

@@ -11,17 +11,7 @@
 #include <fcntl.h>
 #include <ctype.h>
 
-struct Minesweeper{
-  char **board;
-  int rows;
-  int columns;
-  int size;
-  int mines;
-};
-
-struct mine{
-  int marked; //corresponds to the player number who found it
-};
+#include "board.h"
 
 void placeMines(struct Minesweeper * gameboard){
   char ** board = gameboard->board;
