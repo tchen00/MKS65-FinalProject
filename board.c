@@ -84,7 +84,8 @@ struct Minesweeper *makeBoard(int difficulty){
     scanf("%d", &mines);
   }
   printf("YOOOOOOOO");
-  struct Minesweeper *gameboard;
+
+  Minesweeper *gameboard;
   gameboard->rows = r;
   gameboard->columns = c;
   gameboard->mines = mines;
