@@ -83,8 +83,6 @@ struct Minesweeper *makeBoard(int difficulty){
     printf("Enter number of mines: ");
     scanf("%d", &mines);
   }
-  printf("YOOOOOOOO");
-
 
   struct Minesweeper *gameboard = (struct Minesweeper *)malloc(sizeof(struct Minesweeper));
   gameboard->rows = r;
@@ -93,8 +91,7 @@ struct Minesweeper *makeBoard(int difficulty){
 
   gameboard->size = r * c;
 
-  printf("YOOOOOOOO");
-/*
+
   int rowsize = r * sizeof(char*);
   int columnsize = c * sizeof(char);
   gameboard->board = (char**)malloc(rowsize);
@@ -110,7 +107,7 @@ struct Minesweeper *makeBoard(int difficulty){
   printBoard(gameboard);
   placeMines(gameboard);
   printBoard(gameboard);
-*/
+
   return gameboard;
 }
 
