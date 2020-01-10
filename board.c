@@ -18,12 +18,13 @@ struct mine{
 void placeMines(char ** board, int rows, int columns, int mines){
   int randx;
   int randy;
-  while (mines){
+  int minesremaining = mines;
+  while (minesremaining){
     randx = (rand() % (columns + 1)) + columns;
     randy = (rand() % (rows + 1)) + rows;
     if (board[randx][randy] != 'X'){
       board[randx][randy] = 'X';
-      mines--;
+      minesremaining--;
     }
   }
 }
@@ -35,7 +36,7 @@ void printBoard(char ** board, int rows, int columns){
   printf("\t   ");
   for (j = 0; j < columns; j ++){
     printf("%d   ", j);
-    if (j < 10)
+    if (j < 9)
       printf(" ");
   }
   printf("\n");
