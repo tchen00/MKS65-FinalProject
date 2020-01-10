@@ -51,6 +51,7 @@ void printBoard(char ** board, int rows, int columns){
 
 
 char ** makeBoard(int difficulty){
+  printf("difficulty: %d", difficulty);
   int x, y, i, j, mines;
   if(difficulty == 1){
     x = 16, y = 20, mines = 15;
