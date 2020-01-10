@@ -34,10 +34,9 @@ void printBoard(char ** board, int rows, int columns){
   int i, j;
   printf("    ");
   for (j = 0; j < columns; j ++){
-    if (j < 10)
-      printf("%d    ", j);
-    else
-      printf("%d   ");
+    printf("%d    ", j);
+    if (j >= 10)
+      printf("%d   ", j);
   }
   printf("\n");
   for (i = 0; i < rows; i ++){
