@@ -31,8 +31,8 @@ void placeMines(struct Minesweeper * gameboard){
   int randr;
   int randc;
   while (minesremaining){
-    randr = rand() % rows;
-    randc = rand() % columns;
+    randr = rand() % gameboard->rows;
+    randc = rand() % gameboard->columns;
     if (board[randr][randc] != 'X'){
       board[randr][randc] = 'X';
       minesremaining--;
@@ -63,7 +63,7 @@ void printBoard(struct Minesweeper *gameboard){
 }
 
 
-Minesweeper *makeBoard(int difficulty){
+struct Minesweeper *makeBoard(int difficulty){
   printf("difficulty: %d\n", difficulty);
   int r, c, i, j, mines;
   if(difficulty == 1){
