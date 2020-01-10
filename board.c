@@ -11,38 +11,51 @@
 #include <fcntl.h>
 #include <ctype.h>
 
+struct Minesweeper{
+  char ** board;
+  int rows;
+  int columns;
+  int size;
+  int mines;
+};
+
 struct mine{
   int marked; //corresponds to the player number who found it
 };
 
-void placeMines(char ** board, int rows, int columns, int mines){
+void placeMines(struct * Minesweeper gameboard){
+  //might be sus here.
+  char ** board = gameboard->board;
+  int minesremaining = gameboard->mines;
   printf("PLACING MINES...\n");
   int randr;
   int randc;
-  while (mines){
+  while (minesremaining){
     randr = rand() % rows;
     randc = rand() % columns;
     if (board[randr][randc] != 'X'){
       board[randr][randc] = 'X';
-      mines--;
+      minesremaining--;
     }
   }
   printf("MINES PLACED!\n");
 }
 
-void printBoard(char ** board, int rows, int columns){
+void printBoard(struct * Minesweeper gameboard){
+  //again, this might be sus.
+  char ** board = gameboard->board;
   printf("DISPLAYING BOARD...\n");
   int i, j;
   printf("\t   ");
-  for (j = 0; j < columns; j ++){
+  for (j = 0; j < gameboard->columns; j ++){
     printf("%d   ", j);
     if (j < 9)
       printf(" ");
   }
   printf("\n");
-  for (i = 0; i < rows; i ++){
+  for (i = 0; i < gameboard->rows; i ++){
     printf("%d\t", i);
-    for (j = 0; j < columns; j ++){
+    for (j = 0; j < gameboard->columns; j ++){
       printf("[ %c ]", board[i][j]);
     }
     printf("\n");
@@ -50,7 +63,7 @@ void printBoard(char ** board, int rows, int columns){
 }
 
 
-char ** makeBoard(int difficulty){
+struct * Minesweeper makeBoard(int difficulty){
   printf("difficulty: %d\n", difficulty);
   int r, c, i, j, mines;
   if(difficulty == 1){
@@ -70,30 +83,35 @@ char ** makeBoard(int difficulty){
     printf("Enter number of mines: ");
     scanf("%d", &mines);
   }
+  struct Minesweeper *gameboard;
+  gameboard->rows = r;
+  gameboard->columns = c;
+  gameboard->mines = mines;
+  gameboard->size = r * c;
+
   char **newBoard;
   int rowsize = r * sizeof(char*);
   int columnsize = c * sizeof(char);
   newBoard = malloc(rowsize);
-  printf("r * sizeof(char*): %d\n", rowsize);
   for (i=0; i<r; i++)
-       newBoard[i] = malloc(columnsize);
+    newBoard[i] = malloc(columnsize);
+  printf("r * sizeof(char*): %d\n", rowsize);
   printf("c * sizeof(char): %d\n", columnsize);
   printf("size of entire board: %d\n", rowsize * columnsize);
-
-
   for (i = 0; i < r; i++)
       for (j = 0; j < c; j++)
          newBoard[i][j] = '0';
+  gameboard->board = newBoard;
 
-  printBoard(newBoard, r, c);
-  placeMines(newBoard, r, c, mines);
-  printBoard(newBoard, r, c);
-  return newBoard;
+  printBoard(gameboard);
+  placeMines(gameboard);
+  printBoard(gameboard);
+  return gameboard;
 }
 
 int main(int argc, char *argv[]){
   char * diff;
-  char ** currentgame;
+  struct Minesweeper * currentgame;
 
   printf("YO! Enter a difficulty: easy, medium, hard, or other:\n");
   fgets(diff,sizeof(diff),stdin);
