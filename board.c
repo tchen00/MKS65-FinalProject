@@ -77,7 +77,7 @@ char ** makeBoard(int difficulty){
   printBoard(newBoard, x, y);
   printf("yooooooooooooooo");
   placeMines(newBoard, x, y, mines);
-  printBoard(newBoard);
+  printBoard(newBoard, x, y);
   return newBoard;
 }
 
