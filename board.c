@@ -24,7 +24,6 @@ struct mine{
 };
 
 void placeMines(struct Minesweeper * gameboard){
-  //might be sus here.
   char ** board = gameboard->board;
   int minesremaining = gameboard->mines;
   printf("PLACING MINES...\n");
@@ -42,7 +41,6 @@ void placeMines(struct Minesweeper * gameboard){
 }
 
 void printBoard(struct Minesweeper *gameboard){
-  //again, this might be sus.
   char ** board = gameboard->board;
   printf("DISPLAYING BOARD...\n");
   int i, j;
@@ -106,17 +104,6 @@ struct Minesweeper *makeBoard(int difficulty){
       for (j = 0; j < c; j++)
          gameboard->board[i][j] = '0';
 
-/*
-   printBoard(gameboard);
-   placeMines(gameboard);
-   printBoard(gameboard);
-   */
-
-/*
-  for (i=0; i<r; i++)
-    free(gameboard->board[i]);
-  free(gameboard->board);
-*/
   return gameboard;
 }
 
@@ -142,19 +129,6 @@ int main(int argc, char *argv[]){
     currentgame = makeBoard(4);
   }
 
-  //printf("yp");
-/*
-  if(currentgame){
-    printf("yo");
-  }*/
-  //printf("%d", currentgame->rows);
-//these actually don't work in this main function lmao. but it works in the makeboard function. weird.
-/*
-  printf("%d", currentgame->rows);
-  printf("%d", currentgame->columns);
-  printf("%d", currentgame->mines);
-  printf("%d", currentgame->size);
-  */
   printBoard(currentgame);
   placeMines(currentgame);
   printBoard(currentgame);
