@@ -89,6 +89,8 @@ struct Minesweeper *makeBoard(int difficulty){
   gameboard->mines = mines;
   gameboard->size = r * c;
 
+  printf("YOOOOOOOO");
+
   char **newBoard;
   int rowsize = r * sizeof(char*);
   int columnsize = c * sizeof(char);
