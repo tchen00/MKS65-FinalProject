@@ -40,7 +40,7 @@ void printBoard(char ** board, int rows, int columns){
   }
   printf("\n");
   for (i = 0; i < rows; i ++){
-    printf("%d\t|", i);
+    printf("%d\t", i);
     for (j = 0; j < columns; j ++){
       printf("[ %c ]", board[i][j]);
     }
