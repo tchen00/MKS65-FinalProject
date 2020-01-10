@@ -34,13 +34,16 @@ void printBoard(char ** board, int rows, int columns){
   int i, j;
   printf("    ");
   for (j = 0; j < columns; j ++){
-    printf("%d  ", j);
+    if (j < 10)
+      printf("%d    ", j);
+    else
+      printf("%d   ");
   }
   printf("\n");
   for (i = 0; i < rows; i ++){
-    printf("i |");
+    printf("%d |", i);
     for (j = 0; j < columns; j ++){
-      printf("[%c]", board[i][j]);
+      printf("[ %c ]", board[i][j]);
     }
     printf("\n");
   }
