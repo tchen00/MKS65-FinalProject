@@ -1,11 +1,8 @@
 # MKS65 - THE FINAL FRONTIER
 
-## FINAL PROJECT PROPOSAL
-
-#### Team Members
-- Tammy Chen
-- Bernard Wang 
-- Alvin Yao
+#### Project Logistics   
+- **Project Name:** CMineSweeper-Multiplayer
+- **Team Members:** Tammy Chen, Bernard Wang, and Alvin Yao
 
 #### Description of Project
 
@@ -18,7 +15,6 @@ Once the make file is run, the user will be guided to the main menu where they w
 
 
 **Description of Technical Design:**
-
 - Reading in and writing into files to store login information and player history. New players will be prompted to enter new username and old players can view their history.
 - SDLfor low-level access to keyboard, graphics, and mouse
 - Allocating memory to store the current status of the gameboard
@@ -39,19 +35,21 @@ Algorithms
   - Might implement recursion (not too sure which method will be more efficient yet)
 - Might use Quick Sort for leadership board
 
-**Timeline of Expected Completion Dates &amp; Roles**
+**List of Any Required Libraries**
+- SDL (change later) 
 
-- __JAN 6TH:__ Write board.c which should have functions that will build boards (Tammy), place mines (Alvin), and print the answer to the board (Bernard)
-  - Figure out networking between two computers and trying to implement a simple 2 way view of the board.
-- __JAN 11TH:__ Write play.c which should be able to run a functioning Minesweeper game with all the given rules and place mine-holders. Implement networking.
-  - All of us will work together on this!
-  - This is when the MVP (Minimum Viable Product)should be done
-- __JAN 13TH:__ Check the game for any bugs that can be fixed, make the game more efficient (maybe recursion)
-  - All of us will work together on this!
-- __JAN 15TH:__ Add on to play.c by adding the main menu with different options for user input, a display screen for winning/losing, implement timer in-game, and mine count
-  - Main Menu (Tammy)
-  - Display Screen for Winning/Losing (Alvin)
-  - Timer &amp; Mine Count (Bernard)
-- __JAN 17TH:__ Update README.md, check for last-minute bugs
-  - All of us will work on this!
-  - Might implement leaderboard &amp; user login
+**How to Use Your Project**
+To clone the project:
+```bash
+$ git clone git@github.com:tchen00/MKS65-FinalProject.git
+```
+
+#### To run the project:
+```bash
+$ cd MKS65-FinalProject
+$ make
+$ make run
+```
+
+---
+© Copyright 2020 Team bat -- Tammy Chen, Bernard Wang & Alvin Yao
