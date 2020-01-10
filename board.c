@@ -106,10 +106,11 @@ struct Minesweeper *makeBoard(int difficulty){
       for (j = 0; j < c; j++)
          gameboard->board[i][j] = '0';
 
-
+/*
    printBoard(gameboard);
    placeMines(gameboard);
    printBoard(gameboard);
+   */
 
 /*
   for (i=0; i<r; i++)
@@ -121,13 +122,14 @@ struct Minesweeper *makeBoard(int difficulty){
 
 int main(int argc, char *argv[]){
   srand(time(NULL));
-  char * diff;
+  char diff[10];
   struct Minesweeper *currentgame;
 
   printf("YO! Enter a difficulty: easy, medium, hard, or other:\n");
   fgets(diff,sizeof(diff),stdin);
-  if(!strncmp(diff, "easy", 1)){
-    currentgame = makeBoard(4);
+  printf("YOOOOOOOO\n");
+  if(!strncmp(diff, "easy", 4)){
+    currentgame = makeBoard(1);
   }
   else if(!strncmp(diff, "medium", 6)){
     currentgame = makeBoard(2);
@@ -140,7 +142,7 @@ int main(int argc, char *argv[]){
     currentgame = makeBoard(4);
   }
 
-  printf("yp");
+  //printf("yp");
 /*
   if(currentgame){
     printf("yo");
@@ -152,16 +154,16 @@ int main(int argc, char *argv[]){
   printf("%d", currentgame->columns);
   printf("%d", currentgame->mines);
   printf("%d", currentgame->size);
-/*
+  */
   printBoard(currentgame);
   placeMines(currentgame);
   printBoard(currentgame);
-  */
-/*
+
+
   int i;
   for (i=0; i<currentgame->rows; i++)
     free(currentgame->board[i]);
   free(currentgame->board);
-*/
+
   return 0;
 }
