@@ -84,11 +84,13 @@ struct Minesweeper *makeBoard(int difficulty){
     scanf("%d", &mines);
   }
 
-  struct Minesweeper *gameboard = (struct Minesweeper *)malloc(sizeof(struct Minesweeper));
+  //creating struct pointer
+  struct Minesweeper *gameboard;
+  //allocating memory
+  gameboard = (struct Minesweeper *)malloc(sizeof(struct Minesweeper));
   gameboard->rows = r;
   gameboard->columns = c;
   gameboard->mines = mines;
-
   gameboard->size = r * c;
 
 
@@ -104,6 +106,10 @@ struct Minesweeper *makeBoard(int difficulty){
       for (j = 0; j < c; j++)
          gameboard->board[i][j] = '0';
 
+
+   printBoard(gameboard);
+   placeMines(gameboard);
+   printBoard(gameboard);
 
 /*
   for (i=0; i<r; i++)
@@ -121,12 +127,12 @@ int main(int argc, char *argv[]){
   printf("YO! Enter a difficulty: easy, medium, hard, or other:\n");
   fgets(diff,sizeof(diff),stdin);
   if(!strncmp(diff, "easy", 1)){
-    currentgame = makeBoard(1);
+    currentgame = makeBoard(4);
   }
-  else if(!strncmp(diff, "medium", 1)){
+  else if(!strncmp(diff, "medium", 6)){
     currentgame = makeBoard(2);
   }
-  else if(!strncmp(diff, "hard", 1)){
+  else if(!strncmp(diff, "hard", 4)){
     currentgame = makeBoard(3);
   }
   //else if (!strncmp(diff, "other", 1)){
@@ -134,7 +140,14 @@ int main(int argc, char *argv[]){
     currentgame = makeBoard(4);
   }
 
+  printf("yp");
+/*
+  if(currentgame){
+    printf("yo");
+  }*/
+  //printf("%d", currentgame->rows);
 //these actually don't work in this main function lmao. but it works in the makeboard function. weird.
+/*
   printf("%d", currentgame->rows);
   printf("%d", currentgame->columns);
   printf("%d", currentgame->mines);
@@ -144,6 +157,11 @@ int main(int argc, char *argv[]){
   placeMines(currentgame);
   printBoard(currentgame);
   */
-
+/*
+  int i;
+  for (i=0; i<currentgame->rows; i++)
+    free(currentgame->board[i]);
+  free(currentgame->board);
+*/
   return 0;
 }
