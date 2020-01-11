@@ -28,7 +28,7 @@ int main(int argc, char * argv[]){
   }else{
     printf("What would you like your username to be? ");
     fgets(username, 256, stdin);
-    playerOne = makePlayer(username)
+    playerOne = makePlayer(username);
     printPlayer(playerOne);
   }
 
