@@ -16,7 +16,7 @@
 int main(int argc, char * argv[]){
   srand(time(NULL));
 
-  char * username;
+  char username[20];
   printf("Have you played before (y/n)? ");
   char ans[5];
   fgets(ans,sizeof(ans), stdin);
