@@ -23,7 +23,7 @@ struct player makePlayer(char * name){
 }
 
 void findPlayer(char * name){
-
+  return;
 }
 
 void printPlayer(struct player user){

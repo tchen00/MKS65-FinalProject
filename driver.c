@@ -10,9 +10,8 @@
 #include <sys/wait.h>
 #include <fcntl.h>
 #include <ctype.h>
-
-#include "play.h"
 #include "board.h"
+#include "play.h"
 
 int main(int argc, char * argv[]){
   srand(time(NULL));
