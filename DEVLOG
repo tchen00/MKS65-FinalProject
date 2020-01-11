@@ -35,7 +35,7 @@ FORMAT:
 
 2020-01-06 to 2020-01-10:
   alvinY   : made play.c, added header files, added csv
-  bernardW : worked on board.c (printing board) & debugging
+  bernardW : finished board.c (created Minesweeper struct, finished makeBoard and printBoard) & debugging
   tammyC   : tried to learn SDL (not looking so great)
 
 2020-01-11
