@@ -22,8 +22,24 @@ struct player makePlayer(char * name){
   return newPlayer;
 }
 
-void findPlayer(char * name){
-  return;
+struct player findPlayer(char * name){
+  fd = open("player.csv", O_RDONLY);
+  if (fd < 0){
+    printf("open errno: %s\n", strerror(errno));
+  }
+  char buff[100];
+  rd = read(fd, buff, 100);
+  if (rd < 0){
+    printf("read errno: %s\n", strerror(errno));
+  }
+  struct player foundPlayer;
+  /*
+  strcpy(newPlayer.name, "");
+  newPlayer.pastgames = p;
+  newPlayer.victories = 0;
+  newPlayer.losses = 0;
+  */
+  return foundPlayer;
 }
 
 void printPlayer(struct player user){
@@ -34,6 +50,21 @@ void printPlayer(struct player user){
   printf("# of losses: %d\n", user.losses);
   printf("Welcome Back!\n");
 }
+
+void addPlayer(struct player user){
+  fd = fopen("player.csv", "a");
+  if (fd < 0){
+    printf("open errno: %s\n", strerror(errno));
+  }
+  char line[20];
+  sprintf(line, "%s,%d,%d,%d", user->name, user->pastgames, user->victories, user->losses);
+  wr = write(fd, line, 100);
+  if (wr < 0){
+    printf("read errno: %s\n", strerror(errno));
+  }
+  fclose(fd);
+}
+
 
 //void editStudent(struct Student *newStudent, char* newName, int newGrade) {
 //  strcpy(newStudent->name, newName);
