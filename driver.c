@@ -24,10 +24,12 @@ int main(int argc, char * argv[]){
   if(!strncmp(ans,"y",1)){
     printf("What is your username? ");
     fgets(username, 256, stdin);
+    username[strlen(username) - 1] = '\0';
     //playerOne = findPlayer(username);
   }else{
     printf("What would you like your username to be? ");
     fgets(username, 256, stdin);
+    username[strlen(username) - 1] = '\0';
     playerOne = makePlayer(username);
     printPlayer(playerOne);
   }

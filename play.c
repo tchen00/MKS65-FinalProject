@@ -57,9 +57,10 @@ void addPlayer(struct player user){
   if (fd < 0){
     printf("open errno: %s\n", strerror(errno));
   }
+  printf("%s", user.name)
   char line[100];
   sprintf(line, "%s,%d,%d,%d\n", user.name, user.pastgames, user.victories, user.losses);
-  printf(line);
+  printf("%s", line);
   wr = write(fd, line, 100);
   if (wr < 0){
     printf("write errno: %s\n", strerror(errno));
