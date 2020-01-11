@@ -15,19 +15,21 @@
 
 int main(int argc, char * argv[]){
   srand(time(NULL));
-
-  char username[20];
   printf("Have you played before (y/n)? ");
   char ans[5];
   fgets(ans,sizeof(ans), stdin);
+
+  struct player playerOne;
+  char username[20];
   if(!strncmp(ans,"y",1)){
     printf("What is your username? ");
     fgets(username, 256, stdin);
-    findPlayer(username);
+    player = findPlayer(username);
   }else{
     printf("What would you like your username to be? ");
     fgets(username, 256, stdin);
-    printPlayer(makePlayer(username));
+    playerOne = makePlayer(username)
+    printPlayer(playerOne);
   }
 
   char diff[10];
