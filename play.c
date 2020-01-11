@@ -33,11 +33,12 @@ struct player findPlayer(char * name){
   if (rd < 0){
     printf("read errno: %s\n", strerror(errno));
   }
+  char *s = buff;
   struct player foundPlayer;
-  strcpy(newPlayer.name, strsep(&buff));
-  newPlayer.pastgames = sscanf(strsep(&buff), %d);
-  newPlayer.victories = sscanf(strsep(&buff), %d);
-  newPlayer.losses = sscanf(strsep(&buff), %d);
+  strcpy(foundPlayer.name, strsep(&s, ","));
+  foundPlayer.pastgames = sscanf(strsep(&s, ","), %d);
+  foundPlayer.victories = sscanf(strsep(&s, ","), %d);
+  foundPlayer.losses = sscanf(strsep(&s, ","), %d);
   return foundPlayer;
 }
 
