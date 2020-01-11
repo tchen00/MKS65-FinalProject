@@ -28,18 +28,16 @@ struct player findPlayer(char * name){
   if (fd < 0){
     printf("open errno: %s\n", strerror(errno));
   }
-  char buff[100];
-  rd = read(fd, buff, 100);
+  char buff[20];
+  rd = read(fd, buff, 20);
   if (rd < 0){
     printf("read errno: %s\n", strerror(errno));
   }
   struct player foundPlayer;
-  /*
-  strcpy(newPlayer.name, "");
-  newPlayer.pastgames = p;
-  newPlayer.victories = 0;
-  newPlayer.losses = 0;
-  */
+  strcpy(newPlayer.name, strsep(&buff));
+  newPlayer.pastgames = sscanf(strsep(&buff), %d);
+  newPlayer.victories = sscanf(strsep(&buff), %d);
+  newPlayer.losses = sscanf(strsep(&buff), %d);
   return foundPlayer;
 }
 
@@ -59,7 +57,7 @@ void addPlayer(struct player user){
   }
   //lseek(fd, 0, SEEK_END);
   printf("%s\n", user.name);
-  char line[100];
+  char line[20];
   sprintf(line, "%s,%d,%d,%d\n", user.name, user.pastgames, user.victories, user.losses);
   printf("%d", strlen(line));
   line[strlen(line)] = '\0';
