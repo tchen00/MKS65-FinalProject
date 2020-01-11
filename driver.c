@@ -24,7 +24,7 @@ int main(int argc, char * argv[]){
   if(!strncmp(ans,"y",1)){
     printf("What is your username? ");
     fgets(username, 256, stdin);
-    player = findPlayer(username);
+    playerOne = findPlayer(username);
   }else{
     printf("What would you like your username to be? ");
     fgets(username, 256, stdin);
