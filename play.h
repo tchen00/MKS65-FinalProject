@@ -7,5 +7,5 @@ struct player{
 
 struct player makePlayer(char * name);
 void findPlayer(char * name);
-void printPlayer(struct player user);
+struct player printPlayer(struct player user);
 void addPlayer(struct player user);
