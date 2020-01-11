@@ -23,7 +23,7 @@ struct player makePlayer(char * name){
 }
 
 struct player findPlayer(char * name){
-  fd = open("player.csv", O_RDONLY);
+  int fd = open("player.csv", O_RDONLY);
   if (fd < 0){
     printf("open errno: %s\n", strerror(errno));
   }
@@ -52,12 +52,13 @@ void printPlayer(struct player user){
 }
 
 void addPlayer(struct player user){
+  int fd, rd, wr;
   fd = fopen("player.csv", "a");
   if (fd < 0){
     printf("open errno: %s\n", strerror(errno));
   }
   char line[20];
-  sprintf(line, "%s,%d,%d,%d", user->name, user->pastgames, user->victories, user->losses);
+  sprintf(line, "%s,%d,%d,%d", user.name, user.pastgames, user.victories, user.losses);
   wr = write(fd, line, 100);
   if (wr < 0){
     printf("read errno: %s\n", strerror(errno));
