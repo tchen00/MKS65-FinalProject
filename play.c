@@ -53,16 +53,16 @@ void printPlayer(struct player user){
 
 void addPlayer(struct player user){
   int fd, rd, wr;
-  fd = open("player.csv", O_WRONLY);
+  fd = open("player.csv", O_WRONLY | O_APPEND);
   if (fd < 0){
     printf("open errno: %s\n", strerror(errno));
   }
   //lseek(fd, 0, SEEK_END);
-  printf("%s", user.name);
+  printf("%s\n", user.name);
   char line[100];
   sprintf(line, "%s,%d,%d,%d\n", user.name, user.pastgames, user.victories, user.losses);
   printf("%s", line);
-  wr = write(fd, line, 100);
+  wr = write(fd, line, sizeof(line));
   if (wr < 0){
     printf("write errno: %s\n", strerror(errno));
   }
