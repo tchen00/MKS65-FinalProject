@@ -10,6 +10,7 @@ struct mine{
   int marked; //corresponds to the player number who found it
 };
 
-void placeMines(struct Minesweeper * gameboard);
+void placeMines(struct Minesweeper *gameboard);
 void printBoard(struct Minesweeper *gameboard);
 struct Minesweeper *makeBoard(int difficulty);
+void freeBoard(struct Minesweeper *gameboard);

@@ -13,7 +13,7 @@
 
 #include "board.h"
 
-void placeMines(struct Minesweeper * gameboard){
+void placeMines(struct Minesweeper *gameboard){
   char ** board = gameboard->board;
   int minesremaining = gameboard->mines;
   printf("PLACING MINES...\n");
@@ -95,4 +95,11 @@ struct Minesweeper *makeBoard(int difficulty){
          gameboard->board[i][j] = '0';
 
   return gameboard;
+}
+
+void freeBoard(struct Minesweeper *gameboard){
+  int i;
+  for (i=0; i<gameboard->rows; i++)
+    free(gameboard->board[i]);
+  free(gameboard->board);
 }

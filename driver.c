@@ -35,9 +35,8 @@ int main(int argc, char * argv[]){
   char diff[10];
   struct Minesweeper *currentgame;
 
-  printf("YO! Enter a difficulty: easy, medium, hard, or other:\n");
+  printf("Enter a difficulty (easy, medium, hard, or other):\n");
   fgets(diff,sizeof(diff),stdin);
-  printf("YOOOOOOOO\n");
   if(!strncmp(diff, "easy", 4)){
     currentgame = makeBoard(1);
   }
@@ -56,11 +55,8 @@ int main(int argc, char * argv[]){
   placeMines(currentgame);
   printBoard(currentgame);
 
-
-  int i;
-  for (i=0; i<currentgame->rows; i++)
-    free(currentgame->board[i]);
-  free(currentgame->board);
+  
+  freeBoard(currentgame);
 
   return 0;
 }
