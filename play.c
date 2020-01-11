@@ -28,12 +28,15 @@ struct player findPlayer(char * name){
   if (fd < 0){
     printf("open errno: %s\n", strerror(errno));
   }
-  char buff[20];
-  rd = read(fd, buff, 20);
+  char buff[100];
+  rd = read(fd, buff, 100);
   if (rd < 0){
     printf("read errno: %s\n", strerror(errno));
   }
   char *s = buff;
+
+  //go thru the csv file line by line till the first element is the name
+  //then create the player as seen below:
   struct player foundPlayer;
   strcpy(foundPlayer.name, strsep(&s, ","));
   foundPlayer.pastgames = sscanf(strsep(&s, ","), '%d');
@@ -56,11 +59,14 @@ void addPlayer(struct player user){
   if (fd < 0){
     printf("open errno: %s\n", strerror(errno));
   }
-  //lseek(fd, 0, SEEK_END);
   printf("%s\n", user.name);
   char line[20];
   sprintf(line, "%s,%d,%d,%d\n", user.name, user.pastgames, user.victories, user.losses);
   printf("%d", strlen(line));
+  //idk if this line below does anything.
+  //im tryna make it so there isn't so much garbage in the string.
+  //the string should look like alvinyao,0,0,0 and that's it, no more junk after
+  //but uhh idk how to do that yet. so for now there's a shit ton of random binary shit i think.
   line[strlen(line)] = '\0';
   printf("%s", line);
   wr = write(fd, line, strlen(line));
