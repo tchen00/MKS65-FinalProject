@@ -49,7 +49,6 @@ void printPlayer(struct player user){
   printf("# of past games: %d\n", user.pastgames);
   printf("# of victories: %d\n", user.victories);
   printf("# of losses: %d\n", user.losses);
-  printf("Welcome Back!\n");
 }
 
 void addPlayer(struct player user){
@@ -60,6 +59,7 @@ void addPlayer(struct player user){
   }
   char line[100];
   sprintf(line, "%s,%d,%d,%d\n", user.name, user.pastgames, user.victories, user.losses);
+  printf(line);
   wr = write(fd, line, 100);
   if (wr < 0){
     printf("write errno: %s\n", strerror(errno));
