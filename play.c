@@ -36,9 +36,9 @@ struct player findPlayer(char * name){
   char *s = buff;
   struct player foundPlayer;
   strcpy(foundPlayer.name, strsep(&s, ","));
-  foundPlayer.pastgames = sscanf(strsep(&s, ","), %d);
-  foundPlayer.victories = sscanf(strsep(&s, ","), %d);
-  foundPlayer.losses = sscanf(strsep(&s, ","), %d);
+  foundPlayer.pastgames = sscanf(strsep(&s, ","), '%d');
+  foundPlayer.victories = sscanf(strsep(&s, ","), '%d');
+  foundPlayer.losses = sscanf(strsep(&s, ","), '%d');
   return foundPlayer;
 }
 
