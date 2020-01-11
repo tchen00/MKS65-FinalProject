@@ -61,6 +61,7 @@ void addPlayer(struct player user){
   printf("%s\n", user.name);
   char line[100];
   sprintf(line, "%s,%d,%d,%d\n", user.name, user.pastgames, user.victories, user.losses);
+  line[strlen(line)] = '\0';
   printf("%s", line);
   wr = write(fd, line, sizeof(line));
   if (wr < 0){
