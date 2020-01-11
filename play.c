@@ -64,7 +64,7 @@ void addPlayer(struct player user){
   if (wr < 0){
     printf("write errno: %s\n", strerror(errno));
   }
-  fclose(fd);
+  close(fd);
 }
 
 
