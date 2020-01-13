@@ -22,6 +22,21 @@ struct player makePlayer(char * name){
   return newPlayer;
 }
 
+char ** parse_args( char * line , char * separator){
+  //This function separates a line with a provided separator
+  char ** parsed_args = malloc(256);
+  char * current;
+  int i = 0;
+  //while you can continue to strsep, continue to strsep.
+  while((current = strsep(&line, separator))){
+    trim(current);
+    parsed_args[i] = current;
+    i++;
+  }
+  //when you have all the pieces, return the array of pieces.
+  return parsed_args;
+}
+
 struct player findPlayer(char * name){
   int fd, rd;
   fd = open("player.csv", O_RDONLY);
