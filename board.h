@@ -1,5 +1,5 @@
 struct Minesweeper{
-  char **board;
+  struct space **board;
   int rows;
   int columns;
   int size;

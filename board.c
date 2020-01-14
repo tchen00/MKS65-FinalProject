@@ -44,13 +44,12 @@ void printBoard(struct Minesweeper *gameboard){
   for (i = 0; i < gameboard->rows; i ++){
     printf("%d\t", i);
     for (j = 0; j < gameboard->columns; j ++){
-      printf("[ ")
-
+      printf("[ ");
       if (board[i][j].mine == 0){
         printf("_");
       }
       else{
-        printf("*")
+        printf("*");
       }
       printf(" ]");
     }
@@ -105,7 +104,7 @@ struct Minesweeper *makeBoard(int difficulty){
   return gameboard;
 }
 struct space createSpace(){
-  struct space = temp;
+  struct space temp;
   temp.mine = 0;
   temp.neighbors = 0;
   temp.marked = 0;
