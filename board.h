@@ -15,6 +15,7 @@ struct space{
 
 void placeMines(struct Minesweeper *gameboard);
 void printBoard(struct Minesweeper *gameboard);
+void showAns(struct Minesweeper * gameboard);
 struct Minesweeper *makeBoard(int difficulty);
 struct space createSpace();
 void freeBoard(struct Minesweeper *gameboard);

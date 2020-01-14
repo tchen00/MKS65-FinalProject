@@ -56,6 +56,7 @@ int main(int argc, char * argv[]){
   printBoard(currentgame);
   placeMines(currentgame);
   printBoard(currentgame);
+  showAns(currentgame);
 
   addPlayer(playerOne);
   freeBoard(currentgame);
