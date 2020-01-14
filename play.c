@@ -81,7 +81,7 @@ void addPlayer(struct player user){
   }
   char line[20];
   sprintf(line, "%s,%d,%d,%d\n", user.name, user.pastgames, user.victories, user.losses);
-  printf("supposed length of this stupid line (for debugging): %ld\n", strlen(line));
+  printf("supposed length of this stupid output line (for debugging): %ld\n", strlen(line));
   //idk if this line below does anything.
   //im tryna make it so there isn't so much garbage in the string.
   //the string should look like alvinyao,0,0,0 and that's it, no more junk after

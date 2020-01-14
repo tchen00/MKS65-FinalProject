@@ -66,7 +66,28 @@ void printBoard(struct Minesweeper *gameboard){
     printf("\n");
   }
 }
+/*
+IN PROGRESS 11/13/20.
+int getMineCount(struct Minesweeper *gameboard, int i, int j){
+  int count = 0;
+  //we gotta figure out how to get the adjacent coordinates!
+  //then we gotta go thru them and see if they are mines. if they are, count += 1.
+  for x, y in gameboard->board[i][j].adjacentCoors{
+    if (gameboard->board[x][y].mine == -1){
+      count += 1
+    }
+  }
+  return count
+}
 
+void findMineCounts(struct Minesweeper *gameboard){
+  for (i = 0; i < gameboard->rows; i ++){
+    for (j = 0; j < gameboard->columns; j ++){
+      gameboard->board[i][j].neighborcount = getMineCount(gameboard, i, j);
+    }
+  }
+}
+*/
 
 struct Minesweeper *makeBoard(int difficulty){
   printf("difficulty: %d\n", difficulty);
