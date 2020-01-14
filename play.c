@@ -29,13 +29,15 @@ char ** parse_args( char * line , char * separator){
   int i = 0;
   //while you can continue to strsep, continue to strsep.
   while((current = strsep(&line, separator))){
-    trim(current);
+    //**YO WE GOTTA ADD TRIM IN!!!
+    //trim(current);
     parsed_args[i] = current;
     i++;
   }
   //when you have all the pieces, return the array of pieces.
   return parsed_args;
 }
+
 
 struct player findPlayer(char * name){
   int fd, rd;
