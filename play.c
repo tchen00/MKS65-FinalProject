@@ -55,10 +55,13 @@ struct player findPlayer(char * name){
   //go thru the csv file line by line till the first element is the name
   //then create the player as seen below:
   struct player foundPlayer;
+  /*
+  here we shall implement working code. using parseargs etc.
   strcpy(foundPlayer.name, strsep(&s, ","));
   foundPlayer.pastgames = sscanf(strsep(&s, ","), '%d');
   foundPlayer.victories = sscanf(strsep(&s, ","), '%d');
   foundPlayer.losses = sscanf(strsep(&s, ","), '%d');
+  */
   return foundPlayer;
 }
 

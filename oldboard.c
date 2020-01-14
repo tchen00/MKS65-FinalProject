@@ -13,8 +13,8 @@
 
 #include "board.h"
 
-void placeMines(struct Minesweeper *gameboard){
-  struct space ** board = gameboard->board;
+void placeMines(struct Minesweeper * gameboard){
+  char ** board = gameboard->board;
   int minesremaining = gameboard->mines;
   printf("PLACING MINES...\n");
   int randr;
@@ -22,8 +22,8 @@ void placeMines(struct Minesweeper *gameboard){
   while (minesremaining){
     randr = rand() % gameboard->rows;
     randc = rand() % gameboard->columns;
-    if (board[randr][randc].mine == 0){
-      board[randr][randc].mine = -1;
+    if (board[randr][randc] != 'X'){
+      board[randr][randc] = 'X';
       minesremaining--;
     }
   }
@@ -31,7 +31,7 @@ void placeMines(struct Minesweeper *gameboard){
 }
 
 void printBoard(struct Minesweeper *gameboard){
-  struct space ** board = gameboard->board;
+  char ** board = gameboard->board;
   printf("DISPLAYING BOARD...\n");
   int i, j;
   printf("\t   ");
@@ -44,15 +44,7 @@ void printBoard(struct Minesweeper *gameboard){
   for (i = 0; i < gameboard->rows; i ++){
     printf("%d\t", i);
     for (j = 0; j < gameboard->columns; j ++){
-      printf("[ ")
-
-      if (board[i][j].mine == 0){
-        printf("_");
-      }
-      else{
-        printf("*")
-      }
-      printf(" ]");
+      printf("[ %c ]", board[i][j]);
     }
     printf("\n");
   }
@@ -90,31 +82,17 @@ struct Minesweeper *makeBoard(int difficulty){
   gameboard->size = r * c;
 
 
-  int rowsize = r * sizeof(struct space*);
-  int columnsize = c * sizeof(struct space);
-  gameboard->board = (struct space**)malloc(rowsize);
+  int rowsize = r * sizeof(char*);
+  int columnsize = c * sizeof(char);
+  gameboard->board = (char**)malloc(rowsize);
   for (i=0; i<r; i++)
-    gameboard->board[i] = (struct space*)malloc(columnsize);
-  printf("r * sizeof(struct space*): %d\n", rowsize);
-  printf("c * sizeof(struct space): %d\n", columnsize);
+    gameboard->board[i] = (char*)malloc(columnsize);
+  printf("r * sizeof(char*): %d\n", rowsize);
+  printf("c * sizeof(char): %d\n", columnsize);
   printf("size of entire board: %d\n", rowsize * columnsize);
   for (i = 0; i < r; i++)
       for (j = 0; j < c; j++)
-         gameboard->board[i][j] = createSpace();
+         gameboard->board[i][j] = '0';
 
   return gameboard;
-}
-struct space createSpace(){
-  struct space = temp;
-  temp.mine = 0;
-  temp.neighbors = 0;
-  temp.marked = 0;
-  return temp;
-}
-
-void freeBoard(struct Minesweeper *gameboard){
-  int i;
-  for (i=0; i<gameboard->rows; i++)
-    free(gameboard->board[i]);
-  free(gameboard->board);
 }
