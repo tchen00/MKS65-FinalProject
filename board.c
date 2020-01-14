@@ -45,11 +45,21 @@ void printBoard(struct Minesweeper *gameboard){
     printf("%d\t", i);
     for (j = 0; j < gameboard->columns; j ++){
       printf("[ ");
-      if (board[i][j].mine == 0){
+      //if the space is not yet revealed, print '_'.
+      if (!board[i][j].revealed){
         printf("_");
       }
+      //else, if the space is indeed revealed:
       else{
-        printf("*");
+        //if the space is a mine, print *.
+        if (board[i][j].mine == -1){
+          printf("*");
+        }
+        //if the space is just a normal space, print the number of neighboring mines.
+        //neighborcount will be calculated later.
+        else{
+          printf(board[i][j].neighborcount);
+        }
       }
       printf(" ]");
     }
@@ -103,10 +113,12 @@ struct Minesweeper *makeBoard(int difficulty){
 
   return gameboard;
 }
+
 struct space createSpace(){
   struct space temp;
+  temp.revealed = 0;
   temp.mine = 0;
-  temp.neighbors = 0;
+  temp.neighborcount = 0;
   temp.marked = 0;
   return temp;
 }
