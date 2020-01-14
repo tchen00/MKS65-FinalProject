@@ -58,7 +58,7 @@ void printBoard(struct Minesweeper *gameboard){
         //if the space is just a normal space, print the number of neighboring mines.
         //neighborcount will be calculated later.
         else{
-          printf(board[i][j].neighborcount);
+          printf("%d", board[i][j].neighborcount);
         }
       }
       printf(" ]");
