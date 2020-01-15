@@ -31,7 +31,7 @@ void placeMines(struct Minesweeper *gameboard){
 }
 
 //IN PROGRESS 11/13/20.
-int getMineCount(struct Minesweeper *gameboard, int x, int y){
+int getMineCount(struct Minesweeper *gameboard, int y, int x){
   int count = 0;
   //we gotta figure out how to get the adjacent coordinates!
   //then we gotta go thru them and see if they are mines. if they are, count += 1.
