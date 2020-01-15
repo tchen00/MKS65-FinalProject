@@ -20,5 +20,6 @@ void uncoverSpace(struct Minesweeper *gameboard, int y, int x);
 struct Minesweeper *makeBoard(int difficulty);
 void printBoard(struct Minesweeper *gameboard);
 void showAns(struct Minesweeper * gameboard);
+int checkDone(struct Minesweeper *gameboard);
 struct space createSpace();
 void freeBoard(struct Minesweeper *gameboard);
