@@ -75,7 +75,7 @@ int main(int argc, char * argv[]){
   }
   printf("YOU WIN!!!!!!!!\n");
   showans(currentgame);
-  printf("Congrats! turn counter: %d turns!!", turns);
+  printf("Congrats! turn counter: %d turns!!\n", turns);
 
   addPlayer(playerOne);
   freeBoard(currentgame);
