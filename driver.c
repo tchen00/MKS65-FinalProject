@@ -66,7 +66,7 @@ int main(int argc, char * argv[]){
   printf("Enter a column #:");
   scanf("%d", &x);
   printBoard(currentgame);
-  //uncoverSpace(currentgame, y, x);
+  uncoverSpace(currentgame, y, x);
   printBoard(currentgame);
   printf("Uncovered step 1!");
 
