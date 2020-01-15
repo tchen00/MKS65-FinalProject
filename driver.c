@@ -59,6 +59,7 @@ int main(int argc, char * argv[]){
   showAns(currentgame);
 
   int x, y;
+  int turns = 0;
   while (1){
     printf("Uncover a space.\n");
     printf("Enter row #:");
@@ -66,12 +67,15 @@ int main(int argc, char * argv[]){
     printf("Enter a column #:");
     scanf("%d", &x);
     uncoverSpace(currentgame, y, x);
+    turns ++;
     printBoard(currentgame);
     if (checkDone(currentgame) == 1){
       break;
     }
   }
-  printf("YOU WIN!!!");
+  printf("YOU WIN!!!!!!!!\n");
+  showans(currentgame);
+  printf("Congrats! turn counter: %d turns!!", turns);
 
   addPlayer(playerOne);
   freeBoard(currentgame);
