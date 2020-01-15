@@ -58,6 +58,19 @@ int main(int argc, char * argv[]){
   printBoard(currentgame);
   showAns(currentgame);
 
+
+  int x, yl
+  printf("Uncover a space.\n");
+  printf("Enter row #:");
+  scanf("%d", &y);
+  printf("Enter a column #:");
+  scanf("%d", &x);
+  printBoard(currentgame);
+  uncoverSpace(currentgame, y, x);
+  printBoard(currentgame);
+  printf("Uncovered step 1!");
+
+
   addPlayer(playerOne);
   freeBoard(currentgame);
 
