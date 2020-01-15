@@ -16,7 +16,6 @@
 void placeMines(struct Minesweeper *gameboard){
   struct space ** board = gameboard->board;
   int minesremaining = gameboard->mines;
-  printf("PLACING MINES...\n");
   int randr;
   int randc;
   while (minesremaining){
@@ -27,7 +26,6 @@ void placeMines(struct Minesweeper *gameboard){
       minesremaining--;
     }
   }
-  printf("MINES PLACED!\n");
 }
 
 //IN PROGRESS 11/13/20.
@@ -39,7 +37,7 @@ int getMineCount(struct Minesweeper *gameboard, int y, int x){
   for (i = -1; i <= 1; i++){
     for (j = -1; j <= 1; j++){
       if (!(i == 0 && j == 0)){
-        if (y + i >= 0 && x + j >= 0 && y + i < gameboard->rows && x + i < gameboard->columns){
+        if (y + i >= 0 && x + j >= 0 && (y + i) < gameboard->rows && (x + j) < gameboard->columns){
           if (gameboard->board[y+i][x+j].mine == -1){
             count ++;
           }
@@ -126,9 +124,9 @@ struct Minesweeper *makeBoard(int difficulty){
   gameboard->board = (struct space**)malloc(rowsize);
   for (i=0; i<r; i++)
     gameboard->board[i] = (struct space*)malloc(columnsize);
-  printf("r * sizeof(struct space*): %d\n", rowsize);
+  /*printf("r * sizeof(struct space*): %d\n", rowsize);
   printf("c * sizeof(struct space): %d\n", columnsize);
-  printf("size of entire board: %d\n", rowsize * columnsize);
+  printf("size of entire board: %d\n", rowsize * columnsize);*/
   for (i = 0; i < r; i++)
       for (j = 0; j < c; j++)
          gameboard->board[i][j] = createSpace();
@@ -140,15 +138,8 @@ void printBoard(struct Minesweeper *gameboard){
   struct space ** board = gameboard->board;
   printf("DISPLAYING BOARD...\n");
   int i, j;
-  printf("\t   ");
-  for (j = 0; j < gameboard->columns; j ++){
-    printf("%d   ", j);
-    if (j < 9)
-      printf(" ");
-  }
-  printf("\n");
   for (i = 0; i < gameboard->rows; i ++){
-    printf("%d\t", i);
+    printf("%d\t", gameboard->rows - i);
     for (j = 0; j < gameboard->columns; j ++){
       printf("[ ");
       //if the space is not yet revealed, print '_'.
@@ -171,21 +162,21 @@ void printBoard(struct Minesweeper *gameboard){
     }
     printf("\n");
   }
+  printf("\t  ");
+  for (j = 1; j <= gameboard->columns; j ++){
+    printf("%d   ", j);
+    if (j < 9)
+      printf(" ");
+  }
+  printf("\n");
 }
 
 void showAns(struct Minesweeper *gameboard){
   struct space ** board = gameboard->board;
   printf("DISPLAYING ANSWERS...\n");
   int i, j;
-  printf("\t   ");
-  for (j = 0; j < gameboard->columns; j ++){
-    printf("%d   ", j);
-    if (j < 9)
-      printf(" ");
-  }
-  printf("\n");
   for (i = 0; i < gameboard->rows; i ++){
-    printf("%d\t", i);
+    printf("%d\t", gameboard->rows - i);
     for (j = 0; j < gameboard->columns; j ++){
       printf("[ ");
       if (board[i][j].mine == -1){
@@ -198,6 +189,13 @@ void showAns(struct Minesweeper *gameboard){
     }
     printf("\n");
   }
+  printf("\t  ");
+  for (j = 1; j <= gameboard->columns; j ++){
+    printf("%d   ", j);
+    if (j < 9)
+      printf(" ");
+  }
+  printf("\n");
 }
 
 int checkDone(struct Minesweeper *gameboard){

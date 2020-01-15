@@ -55,18 +55,19 @@ int main(int argc, char * argv[]){
 
   placeMines(currentgame);
   findMineCounts(currentgame);
-  printBoard(currentgame);
   showAns(currentgame);
+  printBoard(currentgame);
 
-  int x, y;
+  int x, y, i, j;
   int turns = 0;
   while (1){
-    printf("Uncover a space.\n");
-    printf("Enter row #:");
-    scanf("%d", &y);
-    printf("Enter a column #:");
+    printf("Enter an x-coor: ");
     scanf("%d", &x);
-    uncoverSpace(currentgame, y, x);
+    printf("Enter a y-coor: ");
+    scanf("%d", &y);
+    j = x - 1;
+    i = currentgame->rows - y;
+    uncoverSpace(currentgame, i, j);
     turns ++;
     printBoard(currentgame);
     if (checkDone(currentgame) == 1){
