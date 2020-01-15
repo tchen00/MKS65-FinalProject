@@ -101,12 +101,13 @@ int getMineCount(struct Minesweeper *gameboard, int x, int y){
   //then we gotta go thru them and see if they are mines. if they are, count += 1.
   int i, j;
 
-  for (i = -1, i <= 1, i++){
-    for (j = -1, j <= 1, j++){
+  for (i = -1; i <= 1; i++){
+    for (j = -1; j <= 1; j++){
       if (!(i == 0 && j == 0)){
         if (y + i >= 0 && x + j >= 0 && y + i < gameboard->rows && x + i < gameboard->columns){
-          if gameboard[y+i][x+j].mine == -1
+          if (gameboard->board[y+i][x+j].mine == -1){
             count ++;
+          }
         }
       }
     }
