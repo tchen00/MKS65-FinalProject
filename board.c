@@ -61,6 +61,9 @@ void findMineCounts(struct Minesweeper *gameboard){
 
 void uncoverSpace(struct Minesweeper *gameboard, int y, int x){
   int i, j;
+  if (gameboard->board[y][x].revealed){
+    return;
+  }
   gameboard->board[y][x].revealed = 1;
   printf("%d\n", gameboard->board[y][x].mine);
   printf("%d\n", gameboard->board[y][x].neighborcount);
