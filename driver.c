@@ -73,7 +73,7 @@ int main(int argc, char * argv[]){
       break;
     }
   }
-  printf("YOU WIN!!!!!!!!\n");
+  printf("YOU WIN!!!!!!!! YAYAYAYAYAYYAYAYAYAYAYYAYAYY\n");
   showAns(currentgame);
   printf("Congrats! turn counter: %d turns!!\n", turns);
 
