@@ -59,7 +59,7 @@ int main(int argc, char * argv[]){
   showAns(currentgame);
 
 
-  int x, yl
+  int x, y;
   printf("Uncover a space.\n");
   printf("Enter row #:");
   scanf("%d", &y);
