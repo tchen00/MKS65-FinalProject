@@ -14,8 +14,9 @@ struct space{
 };
 
 void placeMines(struct Minesweeper *gameboard);
-int getMineCount(struct Minesweeper *gameboard, int x, int y);
+int getMineCount(struct Minesweeper *gameboard, int y, int x);
 void findMineCounts(struct Minesweeper *gameboard);
+void uncoverSpace(int y, int x);
 struct Minesweeper *makeBoard(int difficulty);
 void printBoard(struct Minesweeper *gameboard);
 void showAns(struct Minesweeper * gameboard);

@@ -33,10 +33,9 @@ void placeMines(struct Minesweeper *gameboard){
 //IN PROGRESS 11/13/20.
 int getMineCount(struct Minesweeper *gameboard, int y, int x){
   int count = 0;
-  //we gotta figure out how to get the adjacent coordinates!
-  //then we gotta go thru them and see if they are mines. if they are, count += 1.
   int i, j;
-
+  //unfortunately, it's a mad long thing to see if the coordinates are valid.
+  //it works though. so that's a W in my books.
   for (i = -1; i <= 1; i++){
     for (j = -1; j <= 1; j++){
       if (!(i == 0 && j == 0)){
@@ -60,6 +59,20 @@ void findMineCounts(struct Minesweeper *gameboard){
   }
 }
 
+void uncoverSpace(struct Minesweeper *gameboard, int y, int x){
+  gameboard->board[y][x]->revealed = 1;
+  if (gameboard->board[y][x]->mine == 0){
+    for (i = -1; i <= 1; i++){
+      for (j = -1; j <= 1; j++){
+        if (!(i == 0 && j == 0)){
+          if (y + i >= 0 && x + j >= 0 && y + i < gameboard->rows && x + i < gameboard->columns){
+            uncoverSpace(y + i, x + j);
+          }
+        }
+      }
+    }
+  }
+}
 /*
 python uncover board function. it's recursive!!
 def uncover_board(self, y, x):
