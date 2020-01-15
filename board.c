@@ -180,7 +180,9 @@ void showAns(struct Minesweeper *gameboard){
     for (j = 0; j < gameboard->columns; j ++){
       printf("[ ");
       if (board[i][j].mine == -1){
+        printf("\033[1;31m");
         printf("*");
+        printf("\033[0m");
       }
       else{
         printf("%d", board[i][j].neighborcount);
