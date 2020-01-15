@@ -60,6 +60,7 @@ int main(int argc, char * argv[]){
 
   int x, y, i, j;
   int turns = 0;
+  char choice[5];
   while (1){
     printf("Enter an x-coor: ");
     scanf("%d", &x);
@@ -67,7 +68,24 @@ int main(int argc, char * argv[]){
     scanf("%d", &y);
     j = x - 1;
     i = currentgame->rows - y;
-    uncoverSpace(currentgame, i, j);
+
+    printf("flag or uncover (f/u)? ");
+    getchar();
+    fgets(choice,sizeof(choice), stdin);
+
+    if(!strncmp(choice,"u",1)){
+      if (currentgame->board[i][j].revealed){
+        //bruh
+        printf("uncover the damn thing");
+        uncoverCheat(currentgame, i, j);
+      }
+      else{
+        uncoverSpace(currentgame, i, j);
+      }
+    }
+    else{
+      flagSpace(currentgame, i, j);
+    }
     turns ++;
     printBoard(currentgame);
     if (checkDone(currentgame) == 1){
