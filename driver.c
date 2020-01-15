@@ -67,7 +67,7 @@ int main(int argc, char * argv[]){
   scanf("%d", &x);
   printBoard(currentgame);
   uncoverSpace(currentgame, y, x);
-  printBoard(currentgame);
+  //printBoard(currentgame);
   printf("Uncovered step 1!");
 
 
