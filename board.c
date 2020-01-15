@@ -62,7 +62,7 @@ void findMineCounts(struct Minesweeper *gameboard){
 void uncoverSpace(struct Minesweeper *gameboard, int y, int x){
   int i, j;
   gameboard->board[y][x].revealed = 1;
-  printf("%d", gameboard->board[y][x].mine);
+  printf("%d\n", gameboard->board[y][x].mine);
   if (gameboard->board[y][x].neighborcount == 0){
     for (i = -1; i <= 1; i++){
       for (j = -1; j <= 1; j++){
@@ -75,6 +75,7 @@ void uncoverSpace(struct Minesweeper *gameboard, int y, int x){
       }
     }
   }
+  printf("Bruh");
 }
 /*
 python uncover board function. it's recursive!!
