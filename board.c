@@ -64,7 +64,7 @@ void uncoverSpace(struct Minesweeper *gameboard, int y, int x){
   gameboard->board[y][x].revealed = 1;
   printf("%d", gameboard->board[y][x].mine);
   printf("revealed!");
-  if (gameboard->board[y][x].mine == 0){
+  if (gameboard->board[y][x].neighbors == 0){
     for (i = -1; i <= 1; i++){
       for (j = -1; j <= 1; j++){
         if (!(i == 0 && j == 0)){
