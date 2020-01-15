@@ -53,8 +53,8 @@ int main(int argc, char * argv[]){
     currentgame = makeBoard(4);
   }
 
-  printBoard(currentgame);
   placeMines(currentgame);
+  findMineCounts(currentgame);
   printBoard(currentgame);
   showAns(currentgame);
 
