@@ -65,21 +65,17 @@ void uncoverSpace(struct Minesweeper *gameboard, int y, int x){
     return;
   }
   gameboard->board[y][x].revealed = 1;
-  printf("%d\n", gameboard->board[y][x].mine);
-  printf("%d\n", gameboard->board[y][x].neighborcount);
   if (gameboard->board[y][x].neighborcount == 0){
     for (i = -1; i <= 1; i++){
       for (j = -1; j <= 1; j++){
         if (!(i == 0 && j == 0)){
           if (y + i >= 0 && x + j >= 0 && y + i < gameboard->rows && x + i < gameboard->columns){
             uncoverSpace(gameboard, y + i, x + j);
-            printf(" ayo ");
           }
         }
       }
     }
   }
-  printf("Bruh");
 }
 /*
 python uncover board function. it's recursive!!
@@ -202,6 +198,31 @@ void showAns(struct Minesweeper *gameboard){
     }
     printf("\n");
   }
+}
+
+int checkDone(struct Minesweeper *gameboard){
+  int i, j;
+  int numRevealed = 0;
+  int numMines = gameboard->mines;
+  int numSpaces = gameboard->rows * gameboard->columns;
+  for (i = 0; i < gameboard->rows; i ++){
+    for (j = 0; j < gameboard->columns; j ++){
+      if (gameboard->board[i][j].reveal == 1){
+        numRevealed ++;
+      }
+    }
+  }
+  if (numSpaces - numRevealed == numMines){
+    return 1;
+  }
+  return 0;
+
+  def test_won(self):
+    for row in range(self.height):
+        for cell in range(self.width):
+            if self.board[row][cell] == None:
+                return False
+    return True
 }
 
 struct space createSpace(){
