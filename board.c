@@ -70,6 +70,7 @@ void uncoverSpace(struct Minesweeper *gameboard, int y, int x){
         if (!(i == 0 && j == 0)){
           if (y + i >= 0 && x + j >= 0 && y + i < gameboard->rows && x + i < gameboard->columns){
             uncoverSpace(gameboard, y + i, x + j);
+            printf("ayo");
           }
         }
       }
