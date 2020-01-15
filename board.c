@@ -216,13 +216,6 @@ int checkDone(struct Minesweeper *gameboard){
     return 1;
   }
   return 0;
-
-  def test_won(self):
-    for row in range(self.height):
-        for cell in range(self.width):
-            if self.board[row][cell] == None:
-                return False
-    return True
 }
 
 struct space createSpace(){
