@@ -116,6 +116,7 @@ int getMineCount(struct Minesweeper *gameboard, int x, int y){
 }
 
 void findMineCounts(struct Minesweeper *gameboard){
+  int i, j;
   for (i = 0; i < gameboard->rows; i ++){
     for (j = 0; j < gameboard->columns; j ++){
       gameboard->board[i][j].neighborcount = getMineCount(gameboard, i, j);
