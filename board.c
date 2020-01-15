@@ -207,7 +207,7 @@ int checkDone(struct Minesweeper *gameboard){
   int numSpaces = gameboard->rows * gameboard->columns;
   for (i = 0; i < gameboard->rows; i ++){
     for (j = 0; j < gameboard->columns; j ++){
-      if (gameboard->board[i][j].reveal == 1){
+      if (gameboard->board[i][j].revealed == 1){
         numRevealed ++;
       }
     }
