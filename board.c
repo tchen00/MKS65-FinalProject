@@ -65,7 +65,7 @@ void uncoverCheat(struct Minesweeper *gameboard, int y, int x){
     for (j = -1; j <= 1; j++){
       if (!(i == 0 && j == 0)){
         if (y + i >= 0 && x + j >= 0 && y + i < gameboard->rows && x + i < gameboard->columns){
-          if (gameboard->board[y+i][x+j].mine){
+          if (gameboard->board[y+i][x+j].flagged){
             countm++;
           }
         }
