@@ -57,6 +57,36 @@ void findMineCounts(struct Minesweeper *gameboard){
   }
 }
 
+//work in progress
+void uncoverCheat(struct Minesweeper *gameboard, int y, int x){
+  int i, j;
+  int countm = 0;
+  for (i = -1; i <= 1; i++){
+    for (j = -1; j <= 1; j++){
+      if (!(i == 0 && j == 0)){
+        if (y + i >= 0 && x + j >= 0 && y + i < gameboard->rows && x + i < gameboard->columns){
+          if (gameboard->board[y+i][x+j].mine){
+            countm++;
+          }
+        }
+      }
+    }
+  }
+  if (gameboard->board[y][x].neighborcount == countm){
+    for (i = -1; i <= 1; i++){
+      for (j = -1; j <= 1; j++){
+        if (!(i == 0 && j == 0)){
+          if (y + i >= 0 && x + j >= 0 && y + i < gameboard->rows && x + i < gameboard->columns){
+            if (!gameboard->board[y+i][x+j].mine){
+              gameboard->board[y+i][x+j].revealed = 1;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 void uncoverSpace(struct Minesweeper *gameboard, int y, int x){
   int i, j;
   if (gameboard->board[y][x].revealed){
@@ -75,18 +105,12 @@ void uncoverSpace(struct Minesweeper *gameboard, int y, int x){
     }
   }
 }
-/*
-python uncover board function. it's recursive!!
-def uncover_board(self, y, x):
-    if self.board[y][x] != None:
-        return
-    mine_count = self.get_mine_count(y, x)
-    self.board[y][x] = mine_count
-    self.user_view(y, x)
-    if mine_count == 0:
-        for (i,j) in self.adjacent_coordinates(y, x):
-            self.uncover_board(i, j)
-            */
+
+void flagSpace(struct Minesweeper *gameboard, int y, int x){
+  if (!(gameboard->board[y][x].revealed)){
+    gameboard->board[y][x].flagged = 1;
+  }
+}
 
 struct Minesweeper *makeBoard(int difficulty){
   printf("difficulty: %d\n", difficulty);
@@ -146,7 +170,12 @@ void printBoard(struct Minesweeper *gameboard){
       printf("[ ");
       //if the space is not yet revealed, print '_'.
       if (!board[i][j].revealed){
-        printf("_");
+        if (board[i][j].flagged){
+          printf("F");
+        }
+        else{
+          printf("_");
+        }
       }
       //else, if the space is indeed revealed:
       else{
@@ -233,7 +262,7 @@ struct space createSpace(){
   temp.revealed = 0;
   temp.mine = 0;
   temp.neighborcount = 0;
-  temp.marked = 0;
+  temp.flagged = 0;
   return temp;
 }
 
