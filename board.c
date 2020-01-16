@@ -163,7 +163,9 @@ void printBoard(struct Minesweeper *gameboard){
   printf("DISPLAYING BOARD...\n");
   int i, j;
   for (i = 0; i < gameboard->rows; i ++){
+    printf("\x1b[30m\x1b[47m");
     printf("%d\t", gameboard->rows - i);
+    printf("\x1b[0m");
     for (j = 0; j < gameboard->columns; j ++){
       printf("[ ");
       //if the space is not yet revealed, print '_'.
@@ -179,7 +181,9 @@ void printBoard(struct Minesweeper *gameboard){
       else{
         //if the space is a mine, print *.
         if (board[i][j].mine == -1){
+          printf("\033[1;31m");
           printf("*");
+          printf("\033[0m");
         }
         //if the space is just a normal space, print the number of neighboring mines.
         //neighborcount will be calculated later.
@@ -191,12 +195,14 @@ void printBoard(struct Minesweeper *gameboard){
     }
     printf("\n");
   }
+  printf("\x1b[30m\x1b[47m");
   printf("\t  ");
   for (j = 1; j <= gameboard->columns; j ++){
     printf("%d   ", j);
     if (j < 9)
       printf(" ");
   }
+  printf("\x1b[0m");
   printf("\n");
 }
 
@@ -205,11 +211,15 @@ void showAns(struct Minesweeper *gameboard){
   printf("DISPLAYING ANSWERS...\n");
   int i, j;
   for (i = 0; i < gameboard->rows; i ++){
+    printf("\x1b[30m\x1b[47m");
     printf("%d\t", gameboard->rows - i);
+    printf("\x1b[0m");
     for (j = 0; j < gameboard->columns; j ++){
       printf("[ ");
       if (board[i][j].mine == -1){
+        printf("\033[1;31m");
         printf("*");
+        printf("\033[0m");
       }
       else{
         printf("%d", board[i][j].neighborcount);
@@ -218,12 +228,14 @@ void showAns(struct Minesweeper *gameboard){
     }
     printf("\n");
   }
+  printf("\x1b[30m\x1b[47m");
   printf("\t  ");
   for (j = 1; j <= gameboard->columns; j ++){
     printf("%d   ", j);
     if (j < 9)
       printf(" ");
   }
+  printf("\033[0m");
   printf("\n");
 }
 
