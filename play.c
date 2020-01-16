@@ -50,11 +50,32 @@ struct player findPlayer(char * name){
   if (rd < 0){
     printf("read errno: %s\n", strerror(errno));
   }
-  char *s = buff;
+  char ** players = parse_args(buff, "\n");
 
   //go thru the csv file line by line till the first element is the name
   //then create the player as seen below:
   struct player foundPlayer;
+  char ** current;
+  for(int i = 0; i < sizeof(players)/sizeof(players[0]);i++){
+    current = parse_args(players[i],",");
+    if(!strcmp(current[0],name)){
+      strcpy(foundPlayer.name, name);
+      foundPlayer.pastgames = current[1];
+      foundPlayer.victories = current[2];
+      foundPlayer.losses = current[3];
+      return foundPlayer;
+    }
+  }
+  printf("Player was not found. Would you like to make a new account with entered username (y/n)?\n");
+  char choice[10];
+  fgets(choice, 256, stdin);
+  if(!strncmp(choice,"y",1)){
+    foundPlayer = makePlayer(name);
+    return foundPlayer;
+  }else{
+    printf("this is where it breaks\n");
+  }
+  return foundPlayer;
   /*
   here we shall implement working code. using parseargs etc.
   strcpy(foundPlayer.name, strsep(&s, ","));
@@ -62,7 +83,6 @@ struct player findPlayer(char * name){
   foundPlayer.victories = sscanf(strsep(&s, ","), '%d');
   foundPlayer.losses = sscanf(strsep(&s, ","), '%d');
   */
-  return foundPlayer;
 }
 
 void printPlayer(struct player user){

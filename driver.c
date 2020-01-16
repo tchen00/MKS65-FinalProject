@@ -25,14 +25,15 @@ int main(int argc, char * argv[]){
     printf("What is your username? ");
     fgets(username, 256, stdin);
     username[strlen(username) - 1] = '\0';
-    //playerOne = findPlayer(username);
+    printf("%s\n", username);
+    playerOne = findPlayer(username);
   }else{
     printf("What would you like your username to be? ");
     fgets(username, 256, stdin);
     username[strlen(username) - 1] = '\0';
     playerOne = makePlayer(username);
-    printPlayer(playerOne);
   }
+  printPlayer(playerOne);
 
   char diff[10];
   struct Minesweeper *currentgame;
