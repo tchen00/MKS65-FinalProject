@@ -241,7 +241,7 @@ void showAns(struct Minesweeper *gameboard){
 
 int checkDone(struct Minesweeper *gameboard){
   int i, j;
-  int numRevealed = 0;
+  int numRevealed, numFlagged = 0;
   int numMines = gameboard->mines;
   int numSpaces = gameboard->rows * gameboard->columns;
   for (i = 0; i < gameboard->rows; i ++){
@@ -249,9 +249,12 @@ int checkDone(struct Minesweeper *gameboard){
       if (gameboard->board[i][j].revealed == 1){
         numRevealed ++;
       }
+      if (gameboard->[i][j].flagged == 1){
+        numFlagged ++;
+      }
     }
   }
-  if (numSpaces - numRevealed == numMines){
+  if (numSpaces - numRevealed == numMines && numFlagged = numMines){
     return 1;
   }
   return 0;
