@@ -40,7 +40,7 @@ FORMAT:
 
 2020-01-11:
   tammyC   : fixed linking error & update make file, continued to struggle learning SDL
-  bernardW : continued to build Minesweeper algorithms into the game
+  bernardW : continued to build Minesweeper algorithms into the game: uncover recursive stuff, countneighbors, flagging, yknow
   
 2020-01-12 to 2020-01-15:
   bernardW : finished all the functions for a one-player Minesweeper game, and commited a bazillion times because Windows :(
