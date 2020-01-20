@@ -256,7 +256,7 @@ int checkDone(struct Minesweeper *gameboard){
       if (gameboard->board[i][j].revealed == 1){
         numRevealed ++;
       }
-      else if (gameboard->[i][j].flagged == 1){
+      else if (gameboard->board[i][j].flagged == 1){
         numFlagged ++;
       }
     }
