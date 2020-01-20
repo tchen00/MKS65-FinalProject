@@ -3,7 +3,10 @@
 int main(int argc, char **argv) {
 
   int server_socket;
-  char buffer[BUFFER_SIZE];
+  char x[BUFFER_SIZE];
+  char y[BUFFER_SIZE];
+  char choice[BUFFER_SIZE];
+  char buffer[BUFFER_SIZE * 3];
 
   if (argc == 2)
     server_socket = client_setup( argv[1]);
@@ -12,8 +15,19 @@ int main(int argc, char **argv) {
 
   while (1) {
     printf("Enter an x-coor: ");
-    fgets(buffer, sizeof(buffer), stdin);
-    *strchr(buffer, '\n') = 0;
+    fgets(x, sizeof(buffer), stdin);
+    *strchr(x, '\n') = 0;
+
+    printf("Enter a y-coor: ");
+    fgets(y, sizeof(buffer), stdin);
+    *strchr(y, '\n') = 0;
+
+    printf("Uncover or flag? (f/u): ");
+    fgets(choice, sizeof(buffer), stdin);
+    *strchr(choice, '\n') = 0;
+    strcpy(buffer, x);
+    strcat(buffer, y);
+    strcat(buffer, choice);
     write(server_socket, buffer, sizeof(buffer));
     read(server_socket, buffer, sizeof(buffer));
     printf("received: [%s]\n", buffer);
