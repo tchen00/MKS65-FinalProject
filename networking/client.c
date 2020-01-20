@@ -16,18 +16,16 @@ int main(int argc, char **argv) {
   while (1) {
     printf("Enter an x-coor: ");
     fgets(x, sizeof(buffer), stdin);
-    *strchr(x, '\n') = 0;
 
     printf("Enter a y-coor: ");
     fgets(y, sizeof(buffer), stdin);
-    *strchr(y, '\n') = 0;
 
     printf("Uncover or flag? (f/u): ");
     fgets(choice, sizeof(buffer), stdin);
-    *strchr(choice, '\n') = 0;
     strcpy(buffer, x);
     strcat(buffer, y);
     strcat(buffer, choice);
+    *strchr(buffer,'\n') = 0;
     write(server_socket, buffer, sizeof(buffer));
     read(server_socket, buffer, sizeof(buffer));
     printf("received: [%s]\n", buffer);
