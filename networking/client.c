@@ -24,12 +24,15 @@ int main(int argc, char **argv) {
 
     printf("Enter an x-coor: ");
     fgets(current.x, sizeof(buffer), stdin);
+    *strchr(current.x, '\n') = 0;
 
     printf("Enter a y-coor: ");
     fgets(current.y, sizeof(buffer), stdin);
+     *strchr(current.y, '\n') = 0;
 
     printf("Uncover or flag? (f/u): ");
     fgets(current.choice, sizeof(buffer), stdin);
+     *strchr(current.choice, '\n') = 0;
 
     strcpy(buffer, current.x);
     strcat(buffer, current.y);
