@@ -15,6 +15,7 @@
 
 struct player makePlayer(char * name){
   struct player newPlayer;
+
   strcpy(newPlayer.name, name);
   newPlayer.pastgames = 0;
   newPlayer.victories = 0;
@@ -56,8 +57,10 @@ struct player findPlayer(char * name){
   //then create the player as seen below:
   struct player foundPlayer;
   char ** current;
-  for(int i = 0; i < sizeof(players)/sizeof(players[0]);i++){
+  int i = 0;
+  while(players[i]){
     current = parse_args(players[i],",");
+    printf("%s\n", current[0]);
     if(!strcmp(current[0],name)){
       strcpy(foundPlayer.name, name);
       foundPlayer.pastgames = current[1];
@@ -65,6 +68,7 @@ struct player findPlayer(char * name){
       foundPlayer.losses = current[3];
       return foundPlayer;
     }
+    i++;
   }
   printf("Player was not found. Would you like to make a new account with entered username (y/n)?\n");
   char choice[10];
