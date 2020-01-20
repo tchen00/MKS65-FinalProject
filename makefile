@@ -15,3 +15,4 @@ run:
 
 clean:
 		rm *.out
+		rm *~

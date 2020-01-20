@@ -64,7 +64,7 @@ void uncoverCheat(struct Minesweeper *gameboard, int y, int x){
   for (i = -1; i <= 1; i++){
     for (j = -1; j <= 1; j++){
       if (!(i == 0 && j == 0)){
-        if (y + i >= 0 && x + j >= 0 && y + i < gameboard->rows && x + i < gameboard->columns){
+        if (y + i >= 0 && x + j >= 0 && y + i < gameboard->rows && x + j < gameboard->columns){
           if (gameboard->board[y+i][x+j].flagged){
             countm++;
           }
@@ -76,7 +76,7 @@ void uncoverCheat(struct Minesweeper *gameboard, int y, int x){
     for (i = -1; i <= 1; i++){
       for (j = -1; j <= 1; j++){
         if (!(i == 0 && j == 0)){
-          if (y + i >= 0 && x + j >= 0 && y + i < gameboard->rows && x + i < gameboard->columns){
+          if (y + i >= 0 && x + j >= 0 && y + i < gameboard->rows && x + j < gameboard->columns){
             if (!gameboard->board[y+i][x+j].mine){
               uncoverSpace(gameboard, y+i, x + j);
             }
@@ -92,12 +92,13 @@ void uncoverSpace(struct Minesweeper *gameboard, int y, int x){
   if (gameboard->board[y][x].revealed){
     return;
   }
+  //bruh somethign aint working
   gameboard->board[y][x].revealed = 1;
   if (gameboard->board[y][x].neighborcount == 0){
     for (i = -1; i <= 1; i++){
       for (j = -1; j <= 1; j++){
         if (!(i == 0 && j == 0)){
-          if (y + i >= 0 && x + j >= 0 && y + i < gameboard->rows && x + i < gameboard->columns){
+          if (y + i >= 0 && x + j >= 0 && y + i < gameboard->rows && x + j < gameboard->columns){
             uncoverSpace(gameboard, y + i, x + j);
           }
         }
@@ -108,7 +109,12 @@ void uncoverSpace(struct Minesweeper *gameboard, int y, int x){
 
 void flagSpace(struct Minesweeper *gameboard, int y, int x){
   if (!(gameboard->board[y][x].revealed)){
-    gameboard->board[y][x].flagged = 1;
+    if (!gameboard->board[y][x].flagged){
+      gameboard->board[y][x].flagged = 1;
+    }
+    else{
+      gameboard->board[y][x].flagged = 0;
+    }
   }
 }
 
@@ -241,7 +247,8 @@ void showAns(struct Minesweeper *gameboard){
 
 int checkDone(struct Minesweeper *gameboard){
   int i, j;
-  int numRevealed, numFlagged = 0;
+  int numRevealed = 0;
+  int numFlagged = 0;
   int numMines = gameboard->mines;
   int numSpaces = gameboard->rows * gameboard->columns;
   for (i = 0; i < gameboard->rows; i ++){
@@ -254,7 +261,9 @@ int checkDone(struct Minesweeper *gameboard){
       }
     }
   }
-  if (numSpaces - numRevealed == numMines && numFlagged = numMines){
+  printf("%d  %d\n", numFlagged, numMines);
+  printf("%d  %d\n", numSpaces, numRevealed);
+  if (numSpaces - numRevealed == numMines && numFlagged == numMines){
     return 1;
   }
   return 0;
