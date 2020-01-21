@@ -23,7 +23,7 @@ int server_setup() {
   sd = socket( AF_INET, SOCK_STREAM, 0 );
   error_check( sd, "server socket" );
   printf("[server] socket created\n");
-
+  printf("WELCOME TO MINESWEEPER!");
   //setup structs for getaddrinfo
   struct addrinfo * hints, * results;
   hints = (struct addrinfo *)calloc(1, sizeof(struct addrinfo));
