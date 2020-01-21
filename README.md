@@ -55,7 +55,7 @@ $ ./server (if you are the server)
 OR 
 $ ./client (if you are one of the players) 
 ```
-**Known Bugs/THings We Couldn't Get Working**
+**Known Bugs/Things We Couldn't Get Working**
 #### Single Player Minesweeper 
 - The functionality of the game works fine but the login mechanism has a few bugs. If you enter an existing player as a new player, it will still work. The victories/losses are not updating. 
 #### Blind (Multiplayer) Minesweeper
