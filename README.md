@@ -2,7 +2,7 @@
 
 #### Project Logistics   
 - **Project Name:** CMineSweeper-Multiplayer
-- **Team Members:** Tammy Chen, Bernard Wang, and Alvin Yao
+- **Team Members:** Tammy Chen, Bernard Wang, and Alvin Yao (Period 4)
 
 #### Description of Project
 
@@ -55,5 +55,12 @@ $ ./server (if you are the server)
 OR 
 $ ./client (if you are one of the players) 
 ```
----
+**Known Bugs/THings We Couldn't Get Working**
+#### Single Player Minesweeper 
+- The functionality of the game works fine but the login mechanism has a few bugs. If you enter an existing player as a new player, it will still work. The victories/losses are not updating. 
+#### Blind (Multiplayer) Minesweeper
+- This is our attempt at using networking. We got the client to server connection down but the client to client connection does not work. The updated minesweeper board is also not returned to the client which is why we called this blind minesweeper. 
+
+
+--- 
 © Copyright 2020 Team bat -- Tammy Chen, Bernard Wang & Alvin Yao
