@@ -39,17 +39,21 @@ $ git clone git@github.com:tchen00/MKS65-FinalProject.git
 ```
 
 #### To run the project:
-PART I 
+PART I (Single Player Minesweeper)
 ```bash
 $ cd MKS65-FinalProject
 $ make
 $ make run
 ```
-PART II
+PART II (Blind-Multiplayer Minesweeper: establishes connection between client and server)
 ```bash
-$ cd MKS65-FinalProject
+$ cd working_blindminesweeper
 $ make
-$ make run
+$ make fserver
+$ make client 
+$ ./server (if you are the server)
+OR 
+$ ./client (if you are one of the players) 
 ```
 ---
 © Copyright 2020 Team bat -- Tammy Chen, Bernard Wang & Alvin Yao
