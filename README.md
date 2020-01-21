@@ -16,27 +16,22 @@ Once the make file is run, the user will be guided to the main menu where they w
 
 **Description of Technical Design:**
 - Reading in and writing into files to store login information and player history. New players will be prompted to enter new username and old players can view their history.
-- SDLfor low-level access to keyboard, graphics, and mouse
 - Allocating memory to store the current status of the gameboard
 - Signals for keywords to change settings &amp; exit game
-- Use of networking between two players on different computers
+- (ATTEMPTED) Use of networking between two players on different computers
 
 **Data Structures &amp; Algorithms:**
-
 Arrays &amp; Structs
-
 - Used for user login information &amp; gameboard
 - For the gameboard, we might incorporate aspects with a struct to be more efficient (tbd)
-  - We might try to incorporate structs into the mines
+  - Incorporate structs into the mines
 
 Algorithms
-
 - Research Minesweeper algorithm ([this](https://quantum-p.livejournal.com/19616.html) &amp; [this](https://massaioli.wordpress.com/2013/01/12/solving-minesweeper-with-matricies/))
-  - Might implement recursion (not too sure which method will be more efficient yet)
-- Might use Quick Sort for leadership board
+  - Implement recursion backtracking
 
 **List of Any Required Libraries**
-- SDL (change later) 
+- None
 
 **How to Use Your Project**
 To clone the project:

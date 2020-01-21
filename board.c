@@ -177,7 +177,9 @@ void printBoard(struct Minesweeper *gameboard){
       //if the space is not yet revealed, print '_'.
       if (!board[i][j].revealed){
         if (board[i][j].flagged){
+          printf("\033[01;33m");
           printf("F");
+          printf("\x1b[0m");
         }
         else{
           printf("_");

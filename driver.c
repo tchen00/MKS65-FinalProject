@@ -15,6 +15,7 @@
 
 int main(int argc, char * argv[]){
   srand(time(NULL));
+  printf("\x1b[2J");
   printf("Have you played before (y/n)? ");
   char ans[5];
   fgets(ans,sizeof(ans), stdin);
@@ -40,6 +41,7 @@ int main(int argc, char * argv[]){
 
   printf("Enter a difficulty (easy, medium, hard, or other):\n");
   fgets(diff,sizeof(diff),stdin);
+  printf("\x1b[2J");
   if(!strncmp(diff, "easy", 4)){
     currentgame = makeBoard(1);
   }
@@ -57,6 +59,9 @@ int main(int argc, char * argv[]){
   placeMines(currentgame);
   findMineCounts(currentgame);
   showAns(currentgame);
+  printf("\n");
+  printf("\n");
+  //printf("\n");
   printBoard(currentgame);
 
   int x, y, i, j;
